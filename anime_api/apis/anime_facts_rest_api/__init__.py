@@ -7,7 +7,7 @@ Mantainer of the API: Chandan Kumar (https://github.com/chandan-02)
 import typing, requests
 
 from anime_api import exceptions
-from anime_api.anime_facts_rest_api.objects import Anime, Fact
+from anime_api.apis.anime_facts_rest_api.objects import Anime, Fact
 
 
 class AnimeFactsRestAPI:
@@ -29,7 +29,7 @@ class AnimeFactsRestAPI:
 
         if response.status_code != 200:
             raise exceptions.ServerError(
-                f"The server returned a status code other than 200. (Status code: {response.status_code})"
+                status_code=response.status_code,
             )
 
         return [
@@ -49,7 +49,7 @@ class AnimeFactsRestAPI:
 
         if response.status_code != 200:
             raise exceptions.ServerError(
-                f"The server returned a status code other than 200. (Status code: {response.status_code})"
+                status_code=response.status_code
             )
 
         return [
@@ -64,7 +64,7 @@ class AnimeFactsRestAPI:
 
         if response.status_code != 200:
             raise exceptions.ServerError(
-                f"The server returned a status code other than 200. (Status code: {response.status_code})"
+                status_code=response.status_code,
             )
 
         return Fact(id=response.json()["data"]["fact_id"], fact=response.json()["data"]["fact"])

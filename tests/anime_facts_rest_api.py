@@ -8,8 +8,8 @@ Usage:
 
 import typing
 
-from anime_api.anime_facts_rest_api import AnimeFactsRestAPI
-from anime_api.anime_facts_rest_api.objects import Anime, Fact
+from anime_api.apis.anime_facts_rest_api import AnimeFactsRestAPI
+from anime_api.apis.anime_facts_rest_api.objects import Anime, Fact
 
 
 def test_get_animes():

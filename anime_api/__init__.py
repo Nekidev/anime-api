@@ -1,10 +1,11 @@
 """
 This file contains a list of all the available or planned apis.
 """
-from anime_api.anime_facts_rest_api import AnimeFactsRestAPI
+from anime_api.apis.anime_facts_rest_api import AnimeFactsRestAPI
+from anime_api.apis.trace_moe import TraceMoeAPI
 
 
-# List of tuples (api_name, api_class, api_docs_url, is_availabe)
+# List of tuples (api_name, api_class, api_docs_url, is_available)
 apis = [
     (
         "Anime Facts Rest API",
@@ -13,10 +14,10 @@ apis = [
         True,
     ),
     (
-        "Trace.moe Unofficial API",
-        None,
+        "Trace.moe API",
+        TraceMoeAPI,
         "https://soruly.github.io/trace.moe-api/",
-        False,
+        True,
     ),
     ("Animechan", None, "https://animechan.vercel.app/guide", False),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),

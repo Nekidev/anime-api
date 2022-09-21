@@ -6,7 +6,8 @@ The following table lists all the versions currently supported with security upd
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.1.0   | :white_check_mark: |
+| 0.2.0   | ✅                 |
+| 0.1.0   | ✅                 |
 
 ## Reporting a Vulnerability
 

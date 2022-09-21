@@ -63,4 +63,18 @@ These are the currently supported and planned to add support for APIs:
 ### APIs that will not be supported
 - Illegal anime streaming services
 - Non anime-related APIs
-- APIs that require web scrapping
+- APIs that are not APIs (i.e. web scrapping)
+
+
+## Contributors
+<table>
+  <tr>
+    <td style="align:center;">
+      <a href="https://github.com/Nekidev">
+        <img src="https://avatars.githubusercontent.com/u/84998222?s=256&v=4" height="100" width="100" alt="Nekidev avatar" />
+        <br>
+        <span>Nekidev</span>
+      </a>
+    </td>
+  </tr>
+</table>

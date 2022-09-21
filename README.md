@@ -20,7 +20,7 @@ pip install anime-api
 
 These are the currently supported and planned to add support for APIs:
 
-| Name                        | Documentation                                                          | Available |
+| Name                        | API Documentation                                                      | Available |
 |-----------------------------|------------------------------------------------------------------------|-----------|
 | Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)    | ✅        |
 | Trace.moe                   | [Documentation](https://soruly.github.io/trace.moe-api/)               | ✅        |

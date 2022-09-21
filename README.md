@@ -3,6 +3,16 @@
 The Anime API is a collection of wrappers for different types of free anime-related APIs.
 
 
+## Why anime-api (and not others)?
+
+There are several reasons why would you prefer using anime-api:
+- **Intuitive**: anime-api is designed to be intuitive. Supports autocompletion everywhere.
+- **Complete**: Every actively supported API has no feature left apart.
+- **Simple**: Get all the anime information you want with a single line of code.
+- **Legal**: I shouldn't need to say this, but all the APIs are legal. (no free streaming services/others)
+- **Actively supported**: Get new releases (with new API wrappers) every now and then.
+
+
 ## Installation
 
 Using Poetry:
@@ -49,3 +59,8 @@ These are the currently supported and planned to add support for APIs:
 | Konachan                    | [Documentation](https://konachan.com/help/api)                         | ❌        |
 | Waifus.im                   | [Documentation](https://waifu.im/)                                     | ❌        |
 | Catboys                     | [Documentation](https://catboys.com/api)                               | ❌        |
+
+### APIs that will not be supported
+- Illegal anime streaming services
+- Non anime-related APIs
+- APIs that require web scrapping

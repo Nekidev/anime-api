@@ -6,6 +6,7 @@ from anime_api.apis.trace_moe import TraceMoeAPI
 from anime_api.apis.animechan import AnimechanAPI
 from anime_api.apis.waifu_pics import WaifuPicsAPI
 from anime_api.apis.studio_ghibli_api import StudioGhibliAPI
+from anime_api.apis.kyoko import KyokoAPI
 
 
 # List of tuples (api_name, api_class, api_docs_url, is_available)
@@ -29,7 +30,7 @@ api_list = [
     ("Kitsu", None, "https://kitsu.docs.apiary.io/#", False),
     ("AniList", None, "https://anilist.gitbook.io/anilist-apiv2-docs/", False),
     ("AniDB", None, "https://wiki.anidb.net/w/API", False),
-    ("Kyoko", None, "https://github.com/Elliottophellia/kyoko", False),
+    ("Kyoko", KyokoAPI, "https://github.com/Elliottophellia/kyoko", True),
     ("Animu", None, "https://docs.animu.ml/", False),
     ("AniSearch", None, "https://anisearch.com/developers", False),
     (

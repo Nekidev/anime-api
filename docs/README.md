@@ -7,6 +7,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Animechan API](#animechan-api)
 - [Waifu.pics API](#waifupics-api)
 - [Studio Ghibli API](#studio-ghibli-api)
+- [Kyoko API](#kyoko-api)
 
 
 ## Installation
@@ -59,9 +60,9 @@ animes = api.get_animes()
 ```
 
 
-### The `Anime` object
+### The `Anime` class
 
-The `Anime` object has 3 parameters: `id`, `name`, and `image`.
+The `Anime` class has 3 parameters: `id`, `name`, and `image`.
 
 You can also get all its facts with the `facts()` method.
 
@@ -76,7 +77,7 @@ facts = anime.facts(api)
 ```
 
 
-### The `Fact` object
+### The `Fact` class
 
 The `Fact` object has 2 parameters: `id` and `fact`. Take into account that, although the official API says the `id` is the fact's ID, it seems to be the number of the fact in the response.
 
@@ -149,9 +150,9 @@ The `result` variable will be a `anime_api.apis.trace_moe_api.objects.Result` ob
 
 The `search()` method has 2 extra (optional) parameters: `get_anime_info` (defaults to `True`) and `cut_black_borders` (defaults to `False`). If the `cut_black_borders` is set to `True`, the screenshot will be cropped to remove the black borders (this is done by the API).
 
-### The `Result` object
+### The `Result` class
 
-The `Result` object represents a match for the screenshot.
+The `Result` class represents a match for the screenshot.
 
 Parameters:
 
@@ -164,15 +165,15 @@ Parameters:
 - `video`: The URL of the mathcing video. (if any)
 - `image`: The URL of the matching screenshot.
 
-### The `Anime` object
+### The `Anime` class
 
-The `Anime` object represents the anime of the scene.
+The `Anime` class represents the anime of the scene.
 
 Parameters:
 
 - `anilist_id`: The AniList ID of the anime.
 - `mal_id`: The MyAnimeList ID of the anime.
-- `title`: An object with the anime's title in different languages.
+- `title`: An class with the anime's title in different languages.
   - `title.romaji`: The anime's romanized title.
   - `title.synonyms`: A list of the anime's synonyms.
   - `title.english`: The anime's english title.
@@ -288,9 +289,9 @@ image = api.get_random_image(category=ImageCategory.SFW.WAIFU)
 The `image` variable will be a `anime_api.apis.waifu_pics_api.objects.Image` object. This has a `url` parameter which is the URL of the image.
 
 
-### The `ImageCategory` object
+### The `ImageCategory` class
 
-The `ImageCategory` object has 2 sub-classes `SFW` and `NSFW`. Each subclass is an `enum.Enum`.
+The `ImageCategory` class has 2 sub-classes `SFW` and `NSFW`. Each subclass is an `enum.Enum`.
 
 `SFW` categories:
 
@@ -378,4 +379,81 @@ images1 = api.get_many_random_images(category=ImageCategory.SFW.WAIFU)
 images2 = api.get_many_random_images(category=ImageCategory.SFW.WAIFU, exclude=images1)
 
 images_list = images1 + images2
+```
+
+
+## Kyoko API
+
+The Kyoko API is an API to get anime images and quotes. The API documentation can be found [here](https://github.com/Elliottophellia/kyoko).
+
+The Kyoko API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import KyokoAPI
+
+api = KyokoAPI()
+```
+
+
+### `get_random_quote()`
+
+The `get_random_quote()` method returns a `anime_api.apis.kyoko_api.objects.Quote` object.
+
+```python3
+from anime_api.apis import KyokoAPI
+
+api = KyokoAPI()
+
+quote = api.get_random_quote()
+```
+
+
+### The `Quote` class
+
+The `Quote` class has 4 parameters:
+
+- `anime`: The anime title.
+- `character`: The character name.
+- `quote`: The quote.
+- `id`: The quote ID.
+
+
+### `get_random_slap()`
+
+The `get_random_slap()` method returns a `anime_api.apis.kyoko_api.objects.Image` object.
+
+```python3
+from anime_api.apis import KyokoAPI
+
+api = KyokoAPI()
+
+image = api.get_random_slap()
+```
+
+The `image` variable will be a `anime_api.apis.kyoko_api.objects.Image` object. This has a `url` parameter which is the URL of the image.
+
+
+### `get_random_kiss()`
+
+The `get_random_kiss()` method returns a `anime_api.apis.kyoko_api.objects.Image` object.
+
+```python3
+from anime_api.apis import KyokoAPI
+
+api = KyokoAPI()
+
+image = api.get_random_kiss()
+```
+
+
+### `get_random_hug()`
+
+The `get_random_hug()` method returns a `anime_api.apis.kyoko_api.objects.Image` object.
+
+```python3
+from anime_api.apis import KyokoAPI
+
+api = KyokoAPI()
+
+image = api.get_random_hug()
 ```

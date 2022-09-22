@@ -45,7 +45,7 @@ These are the currently supported and planned to add support for APIs:
 | Kitsu                       | [Documentation](https://kitsu.docs.apiary.io/)                         | ❌        |
 | AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)        | ❌        |
 | AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                          | ❌        |
-| Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)              | ❌        |
+| Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)              | ✅        |
 | Animu                       | [Documentation](https://docs.animu.ml/)                                | ❌        |
 | Anisearch                   | [Documentation](https://anisearch.com/developers)                      | ❌        |
 | Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php) | ❌        |

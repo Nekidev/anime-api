@@ -382,6 +382,257 @@ images_list = images1 + images2
 ```
 
 
+## Studio Ghibli API
+
+The Studio Ghibli API is an API to get information about Studio Ghibli movies. The API documentation can be found [here](https://ghibliapi.herokuapp.com/).
+
+The Studio Ghibli API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+```
+
+This API wrapper, unlike the other API wrappers, object relationships will be loaded dynamically. This is because the API returns a list of urls for the relationships. This means that if, for example, you want to get all the people in an anime, when you call `anime.people` you will get a list of unloaded objects. These will automatically be loaded when you access their attributes.
+
+For example:
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+# Returns a loaded Anime object
+anime = api.get_anime(anime_id="2baf70d1-42bb-4437-b551-e5fed5a87abe")
+
+# Returns a list of unloaded Person objects
+people = anime.people
+
+# Still unloaded
+first_person = people[0]
+
+# Loads the person object. You will notice a delay here (the connection to the API is made).
+people.name
+
+# The object was already loaded, so there is no delay.
+people.eye_color
+```
+
+
+### `get_animes()`
+
+The `get_animes()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Anime` objects.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+animes = api.get_animes()
+```
+
+
+### `get_anime(anime_id: str)`
+
+The `get_anime()` method returns a `anime_api.apis.studio_ghibli_api.objects.Anime` object. The `anime_id` parameter is the ID of the anime you want to get.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+anime = api.get_anime(anime_id="2baf70d1-42bb-4437-b551-e5fed5a87abe")
+```
+
+### The `Anime` class
+
+The anime class supports dynamic loading of relationships. This means that if you want to get the people in an anime, you will get a list of unloaded objects. These will automatically be loaded when you access their attributes.
+
+The `Anime` class has the following attributes:
+
+- `id: str` (uuid)
+- `title: _AnimeTitle`
+  - `title.english: str`
+  - `title.japanese: str`
+  - `title.romaji: str`
+- `description: str`
+- `director: str`
+- `producer: str`
+- `release_date: str`
+- `rt_score: int`
+- `running_time: int`
+- `people: list[Person]` (loads dynamically)
+- `species: list[Species]` (loads dynamically)
+- `locations: list[Location]` (loads dynamically)
+- `vehicles: list[Vehicle]` (loads dynamically)
+
+
+### `get_people()`
+
+The `get_people()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Person` objects.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+people = api.get_people()
+```
+
+### `get_person(person_id: str)`
+
+The `get_person()` method returns a `anime_api.apis.studio_ghibli_api.objects.Person` object. The `person_id` parameter is the ID of the person you want to get.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+person = api.get_person(person_id="ba924631-068e-4436-b6de-f3283fa848f0")
+```
+
+
+### The `Person` class
+
+*Dynamic loading of relationships: **Yes***
+
+The `Person` class has the following attributes:
+
+- `id: str` (uuid)
+- `name: str`
+- `gender: str`
+- `age: str`
+- `eye_color: str`
+- `hair_color: str`
+- `animes: list[Anime]` (loads dynamically)
+- `species: Species` (loads dynamically)
+
+
+### `get_species()`
+
+The `get_species()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Species` objects.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+species = api.get_species()
+```
+
+### `get_single_species(species_id: str)`
+
+The `get_single_species()` method returns a `anime_api.apis.studio_ghibli_api.objects.Species` object. The `species_id` parameter is the ID of the species you want to get.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+species = api.get_single_species(species_id="af3910a6-429f-4c74-9ad5-dfe1c4aa04f4")
+```
+
+*(Note: because species is singular and plural, the method had to be renamed to `get_single_species`)*
+
+
+### The `Species` class
+
+*Dynamic loading of relationships: **Yes***
+
+The `Species` class has the following attributes:
+
+- `id: str` (uuid)
+- `name: str`
+- `classification: str`
+- `eye_colors: str`
+- `hair_colors: str`
+- `people: list[Person]` (loads dynamically)
+- `animes: list[Anime]` (loads dynamically)
+
+
+### `get_locations()`
+
+The `get_locations()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Location` objects.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+locations = api.get_locations()
+```
+
+
+### `get_location(location_id: str)`
+
+The `get_location()` method returns a `anime_api.apis.studio_ghibli_api.objects.Location` object. The `location_id` parameter is the ID of the location you want to get.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+location = api.get_location(location_id="c491755a-407d-4d6e-b58a-240ec78b5063")
+```
+
+
+### The `Location` class
+
+*Dynamic loading of relationships: **Yes***
+
+The `Location` class has the following attributes:
+
+- `id: str` (uuid)
+- `name: str`
+- `climate: str`
+- `terrain: str`
+- `surface_water: str`
+- `residents: list[Person]` (loads dynamically)
+- `animes: list[Anime]` (loads dynamically)
+
+
+### `get_vehicles()`
+
+The `get_vehicles()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Vehicle` objects.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+vehicles = api.get_vehicles()
+```
+
+
+### `get_vehicle(vehicle_id: str)`
+
+The `get_vehicle()` method returns a `anime_api.apis.studio_ghibli_api.objects.Vehicle` object. The `vehicle_id` parameter is the ID of the vehicle you want to get.
+
+```python3
+from anime_api.apis import StudioGhibliAPI
+
+api = StudioGhibliAPI()
+
+vehicle = api.get_vehicle(vehicle_id="f25fa661-3073-414d-968a-34e18709c560")
+```
+
+
+### The `Vehicle` class
+
+*Dynamic loading of relationships: **Yes***
+
+The `Vehicle` class has the following attributes:
+
+- `id: str` (uuid)
+- `name: str`
+- `description: str`
+- `vehicle_class: str`
+- `length: str`
+- `pilot: Person` (loads dynamically)
+- `animes: list[Anime]` (loads dynamically)
+
+
 ## Kyoko API
 
 The Kyoko API is an API to get anime images and quotes. The API documentation can be found [here](https://github.com/Elliottophellia/kyoko).

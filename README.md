@@ -20,7 +20,7 @@ Using Poetry:
 poetry add anime-api
 ```
 
-Using PyPi
+Using pip:
 ```
 pip install anime-api
 ```

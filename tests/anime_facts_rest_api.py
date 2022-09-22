@@ -3,7 +3,7 @@ Run tests for the AnimeFactsRestAPI class.
 
 Usage:
     cd tests
-    poetry run python -m pytest
+    poetry run python -m pytest anime_facts_rest_api.py
 """
 
 import typing

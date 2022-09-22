@@ -3,10 +3,11 @@ This file contains a list of all the available or planned apis.
 """
 from anime_api.apis.anime_facts_rest_api import AnimeFactsRestAPI
 from anime_api.apis.trace_moe import TraceMoeAPI
+from anime_api.apis.animechan import AnimechanAPI
 
 
 # List of tuples (api_name, api_class, api_docs_url, is_available)
-apis = [
+api_list = [
     (
         "Anime Facts Rest API",
         AnimeFactsRestAPI,
@@ -19,7 +20,7 @@ apis = [
         "https://soruly.github.io/trace.moe-api/",
         True,
     ),
-    ("Animechan", None, "https://animechan.vercel.app/guide", False),
+    ("Animechan", AnimechanAPI, "https://animechan.vercel.app/guide", True),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),
     ("Waifu Pics", None, "https://waifu.pics/docs", False),
     ("Studio Ghibli API", None, "https://ghibliapi.herokuapp.com/", False),
@@ -45,7 +46,12 @@ apis = [
     ("Shikimori", None, "https://shikimori.one/api/doc", False),
     ("Mangadex", None, "https://api.mangadex.org/docs.html", False),
     ("Danbooru", None, "https://danbooru.donmai.us/wiki_pages/help:api", False),
-    ("Yandere", None, "https://yande.re/help/api", False),       # Yandere and Konachan are forks of the same github repo. That's why they have almost-identical apis.
+    (
+        "Yandere",
+        None,
+        "https://yande.re/help/api",
+        False,
+    ),  # Yandere and Konachan are forks of the same github repo. That's why they have almost-identical apis.
     ("Konachan", None, "https://konachan.com/help/api", False),
     ("Waifu.im", None, "https://waifu.im/", False),
     ("Catboys", None, "https://catboys.com/api", False),

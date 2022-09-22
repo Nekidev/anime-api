@@ -55,8 +55,7 @@ class TraceMoeAPI:
         endpoint: typing.Optional[str] = None,
         x_trace_key: typing.Optional[str] = None,
     ):
-        if endpoint:
-            self.endpoint = endpoint
+        self.endpoint = endpoint or self.endpoint
         self.x_trace_key = x_trace_key
 
     def search(

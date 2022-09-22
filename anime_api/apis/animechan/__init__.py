@@ -32,7 +32,7 @@ class AnimechanAPI:
 
         return Quote(**response.json())
 
-    def get_10_random_quotes(self) -> typing.List[Quote]:
+    def get_many_random_quotes(self) -> typing.List[Quote]:
         """
         Get 10 random quotes from the API.
         """
@@ -76,7 +76,7 @@ class AnimechanAPI:
 
         return [Quote(**quote) for quote in response.json()]
 
-    def get_animes(self, page: int = 1):
+    def get_animes(self, page: int = 1) -> typing.List[str]:
         """
         Return a list of animes.
         """

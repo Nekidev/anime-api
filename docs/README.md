@@ -81,7 +81,7 @@ facts = anime.facts(api)
 The `Fact` object has 2 parameters: `id` and `fact`. Take into account that, although the official API says the `id` is the fact's ID, it seems to be the number of the fact in the response.
 
 
-### `get_anime_facts()`
+### `get_anime_facts(anime_name: str)`
 
 You can fetch all facts for an anime using the `get_anime_facts` method. It will return a list of `Fact` objects.
 
@@ -94,7 +94,7 @@ facts = api.get_anime_facts(anime_name="bleach")
 ```
 
 
-### `get_fact()`
+### `get_fact(anime_name: str, fact_id: int)`
 
 The `get_fact()` method needs 2 arguments: `anime_name` and `fact_id`. This method returns a `Fact`.
 
@@ -120,7 +120,7 @@ api = TraceMoeAPI()
 ```
 
 
-### `search()`
+### `search(file: File, get_anime_info: bool = True, cut_black_borders: bool = False)`
 
 The Trace.moe API wrapper has only 1 method. This method is used to get the anime scene from where the screenshot was taken. You will need to pass the screenshot either as a bytes object with its `content_type` (`image/png`, `image/jpeg`, `video/mp4`, etc.), or a URL string (no `content_type` required).
 
@@ -180,3 +180,80 @@ Parameters:
 - `is_adult`: A boolean that will be `True` if the anime is for adults, otherwise `False`.
 
 If the `get_anime_info` was set to `False` when calling the `search()` method, all the `anime` parameters will be `None` except for `anilist_id`.
+
+
+## Animechan API
+
+The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.vercel.app/).
+
+The Animechan API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+```
+
+
+### `get_random_quote()`
+
+The `get_random_quote()` method returns a `anime_api.apis.animechan_api.objects.Quote` object.
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+
+quote = api.get_random_quote()
+```
+
+### `get_many_random_quotes()`
+
+The `get_many_random_quotes()` method returns a list of 10 `anime_api.apis.animechan_api.objects.Quote` objects.
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+
+quotes = api.get_many_random_quotes()
+```
+
+
+### `search_by_anime_title(anime_title: str, page: int = 1)`
+
+The `search_by_anime_title()` method returns a list of `anime_api.apis.animechan_api.objects.Quote` objects. The `anime_title` parameter is the title of the anime you want to search for. The `page` parameter is the page number of the results (defaults to 1).
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+
+quotes = api.search_by_anime_title(anime_title="naruto")
+```
+
+
+### `search_by_character_name(character_name: str, page: int = 1)`
+
+The `search_by_character_name()` method returns a list of `anime_api.apis.animechan_api.objects.Quote` objects. The `character_name` parameter is the name of the character you want to search for. The `page` parameter is the page number of the results (defaults to 1).
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+
+quotes = api.search_by_character_name(character_name="naruto")
+```
+
+
+### `get_animes()`
+
+The `get_animes()` method returns a list of strings. Each item is an anime title.
+
+```python3
+from anime_api.apis import AnimechanAPI
+
+api = AnimechanAPI()
+
+animes = api.get_animes()
+```

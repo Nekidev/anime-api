@@ -18,15 +18,15 @@ def test_get_quote():
     assert isinstance(quote, Quote), "The return type of get_quote() is not a Quote."
 
 
-def test_get_10_random_quotes():
+def test_get_many_random_quotes():
     """
-    Test the get_10_random_quotes method. Should return a list of quotes.
+    Test the get_many_random_quotes method. Should return a list of quotes.
     """
-    quotes = AnimechanAPI().get_10_random_quotes()
+    quotes = AnimechanAPI().get_many_random_quotes()
 
     assert isinstance(
         quotes, list
-    ), "The return type of get_10_random_quotes() is not a list."
+    ), "The return type of get_many_random_quotes() is not a list."
     assert len(quotes) > 0, "The list of quotes is empty."
     for quote in quotes:
         assert isinstance(

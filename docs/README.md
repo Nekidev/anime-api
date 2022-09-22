@@ -3,9 +3,9 @@
 All API wrappers can be imported from `anime_api.apis`. For example, the Anime Facts Rest API's wrapper class can be imported from `anime_api.apis.anime_facts_rest_api` or directly from `anime_api.apis`.
 
 - [Anime Facts Rest API](#anime-facts-rest-api)
-- [Trace.moe API](#trace.moe-api)
+- [Trace.moe API](#tracemoe-api)
 - [Animechan API](#animechan-api)
-- [Waifu.pics API](#waifu.pics-api)
+- [Waifu.pics API](#waifupics-api)
 - [Studio Ghibli API](#studio-ghibli-api)
 
 

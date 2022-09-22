@@ -41,7 +41,7 @@ These are the currently supported and planned to add support for APIs:
 | Animechan                   | [Documentation](https://animechan.vercel.app/guide)                    | ✅        |
 | Jikan (MyAnimeList)         | [Documentation](https://jikan.docs.apiary.io/)                         | ❌        |
 | Waifu Pics                  | [Documentation](https://waifu.pics/docs)                               | ✅        |
-| Studio Ghibli API           | [Documentation](https://ghibliapi.herokuapp.com/)                      | ❌        |
+| Studio Ghibli API           | [Documentation](https://ghibliapi.herokuapp.com/)                      | ✅        |
 | Kitsu                       | [Documentation](https://kitsu.docs.apiary.io/)                         | ❌        |
 | AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)        | ❌        |
 | AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                          | ❌        |

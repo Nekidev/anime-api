@@ -4,6 +4,8 @@ This file contains a list of all the available or planned apis.
 from anime_api.apis.anime_facts_rest_api import AnimeFactsRestAPI
 from anime_api.apis.trace_moe import TraceMoeAPI
 from anime_api.apis.animechan import AnimechanAPI
+from anime_api.apis.waifu_pics import WaifuPicsAPI
+from anime_api.apis.studio_ghibli_api import StudioGhibliAPI
 
 
 # List of tuples (api_name, api_class, api_docs_url, is_available)
@@ -22,8 +24,8 @@ api_list = [
     ),
     ("Animechan", AnimechanAPI, "https://animechan.vercel.app/guide", True),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),
-    ("Waifu Pics", None, "https://waifu.pics/docs", False),
-    ("Studio Ghibli API", None, "https://ghibliapi.herokuapp.com/", False),
+    ("Waifu Pics", WaifuPicsAPI, "https://waifu.pics/docs", True),
+    ("Studio Ghibli API", StudioGhibliAPI, "https://ghibliapi.herokuapp.com/", True),
     ("Kitsu", None, "https://kitsu.docs.apiary.io/#", False),
     ("AniList", None, "https://anilist.gitbook.io/anilist-apiv2-docs/", False),
     ("AniDB", None, "https://wiki.anidb.net/w/API", False),

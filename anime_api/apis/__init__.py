@@ -5,3 +5,4 @@ from .trace_moe import TraceMoeAPI
 from .anime_facts_rest_api import AnimeFactsRestAPI
 from .animechan import AnimechanAPI
 from .waifu_pics import WaifuPicsAPI
+from .studio_ghibli_api import StudioGhibliAPI

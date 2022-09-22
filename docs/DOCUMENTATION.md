@@ -1,3 +1,4 @@
+theme: minima
 # The Anime API Project
 
 All API wrappers can be imported from `anime_api.apis`. For example, the Anime Facts Rest API's wrapper class can be imported from `anime_api.apis.anime_facts_rest_api` or directly from `anime_api.apis`.

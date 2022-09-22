@@ -66,7 +66,7 @@ These are the currently supported and planned to add support for APIs:
 - APIs that are not APIs (i.e. web scrapping)
 
 
-## Contributors
+## Mantainers
 <table>
   <tr>
     <td style="align:center;">

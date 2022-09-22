@@ -4,10 +4,9 @@
 
 The following table lists all the versions currently supported with security updates.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.2.0   | ✅                 |
-| 0.1.0   | ✅                 |
+| Version | Supported |
+| ------- | --------- |
+| >=0.1.0 | ✅        |
 
 ## Reporting a Vulnerability
 

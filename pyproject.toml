@@ -7,8 +7,9 @@ readme = "README.md"
 packages = [{include = "anime_api"}]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = ">=3.7,<4"
 requests = "^2.28.1"
+pykakasi = "^2.2.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.3"

@@ -58,4 +58,10 @@ api_list = [
     ("Konachan", None, "https://konachan.com/help/api", False),
     ("Waifu.im", None, "https://waifu.im/", False),
     ("Catboys", None, "https://catboys.com/api", False),
+    (
+        "Anime Character Database",
+        None,
+        "http://wiki.animecharactersdatabase.com/index.php?title=API_Access",
+        False,
+    ),
 ]

@@ -257,3 +257,125 @@ api = AnimechanAPI()
 
 animes = api.get_animes()
 ```
+
+
+## Waifu.pics API
+
+The Waifu.pics API is an API to get anime images. The API documentation can be found [here](https://waifu.pics/docs).
+
+The Waifu.pics API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import WaifuPicsAPI
+
+api = WaifuPicsAPI()
+```
+
+
+### `get_random_image(category: ImageCategory.SFW | ImageCategory.NSFW)`
+
+The `get_random_image()` method returns a `anime_api.apis.waifu_pics_api.objects.Image` object. The `category` parameter is the category of the image you want to get. It can be any value of `ImageCategory.SFW` or `ImageCategory.NSFW`.
+
+```python3
+from anime_api.apis import WaifuPicsAPI
+from anime_api.apis.waifu_pics_api.types import ImageCategory
+
+api = WaifuPicsAPI()
+
+image = api.get_random_image(category=ImageCategory.SFW.WAIFU)
+```
+
+The `image` variable will be a `anime_api.apis.waifu_pics_api.objects.Image` object. This has a `url` parameter which is the URL of the image.
+
+
+### The `ImageCategory` object
+
+The `ImageCategory` object has 2 sub-classes `SFW` and `NSFW`. Each subclass is an `enum.Enum`.
+
+`SFW` categories:
+
+- `WAIFU`
+- `NEKO`
+- `SHINOBU`
+- `MEGUMIN`
+- `BULLY`
+- `CUDDLE`
+- `CRY`
+- `HUG`
+- `AWOO`
+- `KISS`
+- `LICK`
+- `PAT`
+- `SMUG`
+- `BONK`
+- `YEET`
+- `BLUSH`
+- `SMILE`
+- `WAVE`
+- `HIGHFIVE`
+- `HANDHOLD`
+- `NOM`
+- `BITE`
+- `GLARE`
+- `SLAP`
+- `KILL`
+- `KICK`
+- `HAPPY`
+- `WINK`
+- `POKE`
+- `DANCE`
+- `CRINGE`
+
+`NSFW` categories:
+
+- `WAIFU`
+- `NEKO`
+- `TRAP`
+- `BLOWJOB`
+
+
+### `get_many_random_images(category: ImageCategory.SFW | ImageCategory.NSFW, exclude: list[str | Image] = [])`
+
+The `get_many_random_images()` method returns a list of 30 `anime_api.apis.waifu_pics_api.objects.Image` objects. The `category` parameter is the same as in `get_random_image()`.
+
+```python3
+from anime_api.apis import WaifuPicsAPI
+from anime_api.apis.waifu_pics_api.types import ImageCategory
+
+api = WaifuPicsAPI()
+
+images = api.get_many_random_images(category=ImageCategory.SFW.WAIFU)
+```
+
+This method also has an `exclude` parameter. This parameter is a list of strings or `anime_api.apis.waifu_pics_api.objects.Image` objects. If you want to exclude an image from the results, you can add the URL of the image to the `exclude` list.
+
+```python3
+from anime_api.apis import WaifuPicsAPI
+from anime_api.apis.waifu_pics_api.types import ImageCategory
+
+api = WaifuPicsAPI()
+
+images = api.get_many_random_images(
+  category=ImageCategory.SFW.WAIFU, 
+  exclude=[
+    "https://example.com/img.png",
+    Image(url="https://example.com/other-img.png")
+  ]
+)
+```
+
+*The URL strings and the Image objects can be combined in the `exclude` list.*
+
+This parameter can be useful to get a list of images without duplicates.
+
+```python3
+from anime_api.apis import WaifuPicsAPI
+from anime_api.apis.waifu_pics_api.types import ImageCategory
+
+api = WaifuPicsAPI()
+
+images1 = api.get_many_random_images(category=ImageCategory.SFW.WAIFU)
+images2 = api.get_many_random_images(category=ImageCategory.SFW.WAIFU, exclude=images1)
+
+images_list = images1 + images2
+```

@@ -20,7 +20,7 @@ class WaifuPicsAPI:
     def __init__(self, endpoint: typing.Optional[str] = None):
         self.endpoint = endpoint or self.endpoint
 
-    def get_image(
+    def get_random_image(
         self, category: typing.Union[ImageCategory.SFW, ImageCategory.NSFW]
     ) -> Image:
         """
@@ -41,7 +41,7 @@ class WaifuPicsAPI:
             url=response.json()["url"], nsfw=isinstance(category, ImageCategory.NSFW)
         )
 
-    def get_many_images(
+    def get_many_random_images(
         self,
         category: typing.Union[ImageCategory.SFW, ImageCategory.NSFW],
         exclude: typing.Optional[typing.List[typing.Union[str, Image]]] = None,

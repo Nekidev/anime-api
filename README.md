@@ -1,5 +1,7 @@
 # The Anime API Project
 
+![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
+
 The Anime API is a collection of wrappers for different types of free anime-related APIs.
 
 

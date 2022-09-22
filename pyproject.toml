@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "anime_api"}]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ""
 requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]

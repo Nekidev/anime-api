@@ -18,8 +18,7 @@ class AnimeFactsRestAPI:
     endpoint = "https://anime-facts-rest-api.herokuapp.com/api/v1"
 
     def __init__(self, endpoint: typing.Optional[str] = None):
-        if endpoint:
-            self.endpoint = endpoint
+        self.endpoint = endpoint or self.endpoint
 
     def get_animes(self) -> typing.List[Anime]:
         """

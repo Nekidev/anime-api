@@ -53,7 +53,7 @@ These are the currently supported and planned to add support for APIs:
 | Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
 | Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ✅        |
 | Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
-| NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ❌        |
+| NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
 | Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ❌        |
 | Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |
 | Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ❌        |

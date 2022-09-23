@@ -52,7 +52,7 @@ These are the currently supported and planned to add support for APIs:
 | Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
 | Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
 | Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ✅        |
-| Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ❌        |
+| Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
 | NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ❌        |
 | Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ❌        |
 | Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |

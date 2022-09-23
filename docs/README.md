@@ -1050,3 +1050,154 @@ The `ImageCategory` class has 2 sub-classes:
   - `RANDOM`: A random NSFW image category.
 
 *The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/hmtai/types.py`*
+
+
+## Nekos.life API
+
+The Nekos.life API is an API that returns random anime images. NSFW content was removed from the API some time ago so everything is SFW. The API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+```
+
+
+### `get_random_image(category: ImageCategory)`
+
+The `get_random_image()` method returns a `anime_api.apis.nekos_life.objects.Image` object.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+from anime_api.apis.nekos_life.types import ImageCategory
+
+api = NekosLifeAPI()
+
+image = api.get_random_image(category=ImageCategory.WAVE)
+```
+
+The `image` variable will be a `anime_api.apis.nekos_life.objects.Image` object. This has a single `url` parameter that contains the url of the image.
+
+
+### The `ImageCategory` Enum
+
+The `ImageCategory` enum has the following values:
+
+- `SMUG`
+- `WOOF`
+- `GASM`
+- `EIGHT_BALL`
+- `GOOSE`
+- `CUDDLE`
+- `AVATAR`
+- `SLAP`
+- `PAT`
+- `GECG`
+- `FEED`
+- `FOX_GIRL`
+- `LIZARD`
+- `NEKO`
+- `HUG`
+- `MEOW`
+- `KISS`
+- `WALLPAPER`
+- `TICKLE`
+- `SPANK`
+- `WAIFU`
+- `LEWD`
+- `NGIF`
+
+
+### `get_random_cat_emoji()`
+
+The `get_random_cat_emoji()` returns a random cat text emoji (ex: `=^._.^=`).
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+emoji = api.get_random_cat_emoji()
+```
+
+
+### `get_random_fact()`
+
+The `get_random_fact()` returns a random fact.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+fact = api.get_random_fact()
+```
+
+The `fact` variable will be an `anime_api.apis.nekos_life.objects.Fact` object. This has a single `fact` parameter that contains the fact.
+
+
+### `get_random_name()`
+
+The `get_random_name()` returns a randomly generated name as a string.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+name = api.get_random_name()
+```
+
+
+### `owoify(text: str)`
+
+The `owoify()` method *owoifies* a string. For example, `hello developer` becomes `hewwo devewopew`.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+owoified_text = api.owoify("hello developer")
+```
+
+
+### `spoiler(text: str)`
+
+The `spoiler()` method adds a spoiler tag to a string. For example, `hello developer` becomes `||hello developer||`.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+spoilered_text = api.spoiler("hello developer")
+```
+
+
+### `get_random_why()`
+
+The `get_random_why()` method returns a random `why` question (ex: Why did ... ?).
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+why = api.get_random_why()
+```
+
+
+### `get_eight_ball()`
+
+The `get_eight_ball()` method returns a random answer from an 8-ball.
+
+```python3
+from anime_api.apis import NekosLifeAPI
+
+api = NekosLifeAPI()
+
+answer = api.get_eight_ball()
+```
+
+The `answer` variable will be an `anime_api.apis.nekos_life.objects.EightBall` object. This has a `answer` property that contains the answer. Aditionally, it has a `image` property that contains an `Image` object with the url of an 8ball showing the answer.

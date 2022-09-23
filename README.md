@@ -1,4 +1,3 @@
-# The Anime API Project
 
 ![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
 
@@ -36,6 +35,7 @@ The full documentation can be found [here](https://nekidev.github.io/anime-api/d
 
 These are the currently supported and planned to add support for APIs:
 
+<<<<<<< HEAD
 | Name                        | API Documentation                                                      | Available |
 |-----------------------------|------------------------------------------------------------------------|-----------|
 | Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)    | ✅        |
@@ -65,6 +65,38 @@ These are the currently supported and planned to add support for APIs:
 | Konachan                    | [Documentation](https://konachan.com/help/api)                         | ❌        |
 | Waifus.im                   | [Documentation](https://waifu.im/)                                     | ❌        |
 | Catboys                     | [Documentation](https://catboys.com/api)                               | ❌        |
+=======
+| Name                        | API Documentation                                                                   | Available |
+|-----------------------------|-------------------------------------------------------------------------------------|-----------|
+| Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)                 | ✅        |
+| Trace.moe                   | [Documentation](https://soruly.github.io/trace.moe-api/)                            | ✅        |
+| Animechan                   | [Documentation](https://animechan.vercel.app/guide)                                 | ✅        |
+| Jikan (MyAnimeList)         | [Documentation](https://jikan.docs.apiary.io/)                                      | ❌        |
+| Waifu Pics                  | [Documentation](https://waifu.pics/docs)                                            | ✅        |
+| Studio Ghibli API           | [Documentation](https://ghibliapi.herokuapp.com/)                                   | ✅        |
+| Kitsu                       | [Documentation](https://kitsu.docs.apiary.io/)                                      | ❌        |
+| AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)                     | ❌        |
+| AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                                       | ❌        |
+| Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)                           | ✅        |
+| Animu                       | [Documentation](https://docs.animu.ml/)                                             | ✅        |
+| Anisearch                   | [Documentation](https://anisearch.com/developers)                                   | ❌        |
+| Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
+| Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
+| Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ❌        |
+| Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ❌        |
+| NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ❌        |
+| Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ❌        |
+| Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |
+| Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ❌        |
+| Shikimori                   | [Documentation](https://shikimori.one/api/doc)                                      | ❌        |
+| MangaDex                    | [Documentation](https://api.mangadex.org/docs.html)                                 | ❌        |
+| Danbooru                    | [Documentation](https://danbooru.donmai.us/wiki_pages/help:api)                     | ❌        |
+| Yandere                     | [Documentation](https://yande.re/help/api)                                          | ❌        |
+| Konachan                    | [Documentation](https://konachan.com/help/api)                                      | ❌        |
+| Waifus.im                   | [Documentation](https://waifu.im/)                                                  | ❌        |
+| Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
+| Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
+>>>>>>> dbec65affbf037e188d2d6f2865355292e4b8060
 
 ### APIs that will not be supported
 - Illegal anime streaming services

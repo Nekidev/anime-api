@@ -8,22 +8,19 @@ class Anime:
     """
     Object representation of an anime
     """
-    _api: object
 
     id: int
     name: str
     image: str
 
-    def facts(self, api: typing.Optional[object] = None):
+    @property
+    def facts(self):
         """
         Returns a list of facts about the anime.
         """
-        if not api and not self._api:
-            raise ValueError(
-                "No API was provided."
-            )
-        elif not api:
-            api = self._api
+        from anime_api.apis import AnimeFactsRestAPI
+
+        api = AnimeFactsRestAPI()
 
         return api.get_anime_facts(self.name)
 

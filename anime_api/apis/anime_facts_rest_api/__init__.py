@@ -4,7 +4,7 @@ https://chandan-02.github.io/anime-facts-rest-api/
 
 Mantainer of the API: Chandan Kumar (https://github.com/chandan-02)
 """
-import typing, requests
+import typing, requests, random
 
 from anime_api import exceptions
 from anime_api.apis.anime_facts_rest_api.objects import Anime, Fact
@@ -16,9 +16,6 @@ class AnimeFactsRestAPI:
     """
 
     endpoint = "https://anime-facts-rest-api.herokuapp.com/api/v1"
-
-    def __init__(self, endpoint: typing.Optional[str] = None):
-        self.endpoint = endpoint or self.endpoint
 
     def get_animes(self) -> typing.List[Anime]:
         """
@@ -54,6 +51,12 @@ class AnimeFactsRestAPI:
         return [
             Fact(id=fact["fact_id"], fact=fact["fact"]) for fact in response.json()["data"]
         ]
+
+    def get_anime_random_fact(self, anime_name: str) -> Fact:
+        """
+        Return a random fact about the given anime (by it's name).
+        """
+        return random.choice(self.get_anime_facts(anime_name))
 
     def get_fact(self, anime_name: str, fact_id: int) -> Fact:
         """

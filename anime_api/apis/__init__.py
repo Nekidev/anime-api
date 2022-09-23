@@ -10,3 +10,4 @@ from .kyoko import KyokoAPI
 from .animu import AnimuAPI
 from .hmtai import HmtaiAPI
 from .nekos_life import NekosLifeAPI
+from .nekobot import NekoBotAPI

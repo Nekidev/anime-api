@@ -9,6 +9,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Studio Ghibli API](#studio-ghibli-api)
 - [Kyoko API](#kyoko-api)
 - [Animu API](#animu-api)
+- [Nekos.life API](#nekoslife-api)
 
 
 ## Installation

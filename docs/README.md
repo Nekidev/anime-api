@@ -8,6 +8,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Waifu.pics API](#waifupics-api)
 - [Studio Ghibli API](#studio-ghibli-api)
 - [Kyoko API](#kyoko-api)
+- [Animu API](#animu-api)
 
 
 ## Installation
@@ -707,4 +708,264 @@ from anime_api.apis import KyokoAPI
 api = KyokoAPI()
 
 image = api.get_random_hug()
+```
+
+
+## Animu API
+
+The Animu API is an API to get random anime gifs, facts, waifus and passwords (haha... wtf its true?).
+
+The Animu API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+```
+
+This API requires an API token. It is free while you keep in their Discord server. 
+
+
+### How to get an API token
+
+1. Join the official [Discord server](https://discord.gg/yyW389c).
+2. Go to the `#bot-commands` channel.
+3. Type `-claim` and wait for the bot to respond.
+4. Go to your DMs.
+5. Send your email to the bot
+6. Copy your API token
+
+Note that if you leave the Discord server, your API token will be revoked.
+
+
+### `get_random_image(category: ImageCategory)`
+
+The `get_random_image()` method returns a `anime_api.apis.animu_api.objects.Image` object. The `category` parameter is the category of the image you want to get.
+
+```python3
+from anime_api.apis import AnimuAPI
+from anime_api.apis.animu.types import ImageType
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+image: Image = api.get_random_image(category=ImageType.YES)
+```
+
+The `ImageType` enum has the following values:
+
+- `ANGRY`
+- `BAKA`
+- `BITE`
+- `BLUSH`
+- `BONK`
+- `BORED`
+- `BULLY`
+- `BYE`
+- `CHASE`
+- `CHEER`
+- `CRINGE`
+- `CRY`
+- `CUDDLE`
+- `DAB`
+- `DANCE`
+- `DIE`
+- `DISGUST`
+- `FACEPALM`
+- `FEED`
+- `GLOMP`
+- `HAPPY`
+- `HI`
+- `HIGHFIVE`
+- `HOLD`
+- `HUG`
+- `KICK`
+- `KILL`
+- `KISS`
+- `LAUGH`
+- `LICK`
+- `LOVE`
+- `LURK`
+- `MIDFING`
+- `NERVOUS`
+- `NOPE`
+- `NOM`
+- `NUZZLE`
+- `PANIC`
+- `PAT`
+- `PECK`
+- `POKE`
+- `POUT`
+- `PUNCH`
+- `RUN`
+- `SAD`
+- `SHOOT`
+- `SHRUG`
+- `SIP`
+- `SLAP`
+- `SLEEPY`
+- `SMILE`
+- `SMUG`
+- `STAB`
+- `STARE`
+- `SUICIDE`
+- `TEASE`
+- `THINK`
+- `THUMBSUP`
+- `TICKLE`
+- `TRIGGERED`
+- `WAG`
+- `WAKE`
+- `WINK`
+- `YES`
+
+
+### The `Image` class
+
+The `Image` class has a `url` property which contains the url of the image.
+
+
+### `get_random_quote()`
+
+The `get_random_quote()` method returns a `anime_api.apis.animu_api.objects.Quote` object.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+quote: Quote = api.get_random_quote()
+```
+
+The `quote` variable will be a `anime_api.apis.animu_api.objects.Quote` object.
+
+
+### The `Quote` class
+
+The `Quote` class has 4 parameters:
+
+- `anime`: The anime title.
+- `character`: The character name.
+- `quote`: The quote.
+- `id`: The quote ID.
+
+
+### `get_random_waifu()`
+
+The `get_random_waifu()` method returns a `anime_api.apis.animu_api.objects.Waifu` object.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+waifu: Waifu = api.get_random_waifu()
+```
+
+The `waifu` variable will be a `anime_api.apis.animu_api.objects.Waifu` object.
+
+
+### The `Waifu` class
+
+The `Waifu` class has 5 parameters:
+
+- `id`: The waifu ID.
+- `name`: The waifu name.
+  - `name.english`: The waifu name in english.
+  - `name.japanese`: The waifu name in japanese.
+  - `name.alternative`: The waifu name in alternative.
+  - `name.romaji`: The waifu name in romaji (converted from `name.japanese`).
+- `images`: A list of `Image` objects.
+  - `images[0].url`: The url of the image.
+- `from_`: The source from where the waifu is from.
+  - `from_.name`: The name of the source.
+  - `from_.type_`: The type of the source.
+- `statistics`: The waifu statistics.
+  - `statistics.favorites`: The number of favorites.
+  - `statistics.love`: The amount of love ❤.
+  - `statistics.hate`: The amount of hate 💔.
+  - `statistics.upvotes`: The number of upvotes.
+  - `statistics.downvotes`: The number of downvotes.
+
+
+### `get_random_password()`
+
+The `get_random_password()` method returns a string.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+password: str = api.get_random_password()
+```
+
+
+### `get_random_fact(tags: str | AND | OR, min_length: int | None = None, max_length: int | None = None)`
+
+The `get_random_fact()` method returns a `anime_api.apis.animu_api.objects.Fact` object.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+fact: Fact = api.get_random_fact()
+```
+
+
+#### Operators
+
+The `tags` parameter can be a string, `AND` or `OR`.
+
+The `AND` operator will return a fact that has all the tags you specified. The `OR` operator will return a fact that has at least one of the tags you specified.
+
+Usage:
+
+```python3
+from anime_api.apis import AnimuAPI
+from anime_api.apis.animu.operators import AND, OR
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+fact1: Fact = api.get_random_fact(tags=AND("AttackOnTitan", "knife", "sword", ...))
+fact2: Fact = api.get_random_fact(tags=OR("pokemon", "AttackOnTitan", "SwordArtOnline", ...))
+fact3: Fact = api.get_random_fact(tags="pokemon")
+```
+
+
+### The `Fact` class
+
+The `Fact` class has 3 parameters:
+
+- `id`: The fact ID.
+- `fact`: The fact.
+- `tags`: A list of strings.
+
+
+### `generate_random_password()`
+
+The `generate_random_password()` method returns a string.
+
+```python3
+from anime_api.apis import AnimuAPI
+
+api_token = "YOUR_API_TOKEN"
+
+api = AnimuAPI(api_token=api_token)
+
+password: str = api.generate_random_password()
 ```

@@ -97,8 +97,8 @@ class AnimuAPI:
         )
 
     def get_random_fact(
-        self, 
-        tags: typing.Optional[typing.Union[str, typing.List[typing.Union[AND, OR]]]] = None,
+        self,
+        tags: typing.Optional[typing.Union[str, typing.Union[AND, OR]]] = None,
         min_length: typing.Optional[int] = None,
         max_length: typing.Optional[int] = None,
     ) -> Fact:

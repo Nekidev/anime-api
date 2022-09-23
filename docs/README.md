@@ -330,10 +330,7 @@ The `ImageCategory` class has 2 sub-classes `SFW` and `NSFW`. Each subclass is a
 
 `NSFW` categories:
 
-- `WAIFU`
-- `NEKO`
-- `TRAP`
-- `BLOWJOB`
+*The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/waifu_pics/types.py`*
 
 
 ### `get_many_random_images(category: ImageCategory.SFW | ImageCategory.NSFW, exclude: list[str | Image] = [])`
@@ -969,3 +966,87 @@ api = AnimuAPI(api_token=api_token)
 
 password: str = api.generate_random_password()
 ```
+
+
+## Hmtai
+
+The Hmtai API is an API that returns random anime images, both SFW and NSFW. This can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import HmtaiAPI
+
+api = HmtaiAPI()
+```
+
+
+### `get_random_image(category: ImageCategory.SFW | ImageCategory.NSFW)`
+
+The `get_random_image()` method returns a `anime_api.apis.hmtai.objects.Image` object.
+
+```python3
+from anime_api.apis import HmtaiAPI
+from anime_api.apis.hmtai.types import ImageCategory
+
+api = HmtaiAPI()
+
+image = api.get_random_image(category=ImageCategory.SFW.KISS)
+```
+
+The `image` variable will be a `anime_api.apis.hmtai.objects.Image` object. This has two parameters:
+
+- `url`: The url of the image.
+- `nsfw`: A boolean that indicates if the image is NSFW or not.
+
+
+### The `ImageCategory` class
+
+The `ImageCategory` class has 2 sub-classes:
+
+- `SFW`: The SFW image categories.
+  - `WAVE`
+  - `WINK`
+  - `TEA`
+  - `BONK`
+  - `PUNCH`
+  - `POKE`
+  - `BULLY`
+  - `PAT`
+  - `KISS`
+  - `KICK`
+  - `BLUSH`
+  - `FEED`
+  - `SMUG`
+  - `HUG`
+  - `CUDDLE`
+  - `CRY`
+  - `CRINGE`
+  - `SLAP`
+  - `FIVE`
+  - `GLOMP`
+  - `HAPPY`
+  - `HOLD`
+  - `NOM`
+  - `SMILE`
+  - `THROW`
+  - `LICK`
+  - `BITE`
+  - `DANCE`
+  - `BOOP`
+  - `SLEEP`
+  - `LIKE`
+  - `KILL`
+  - `TICKLE`
+  - `NOSEBLEED`
+  - `THREATEN`
+  - `DEPRESSION`
+  - `WOLF`
+  - `JAHY`
+  - `NEKO`
+  - `COFFEE_ARTS`
+  - `WALLPAPER`
+  - `MOBILEWALLPAPER`
+
+- `NSFW`: The NSFW image categories.
+  - `RANDOM`: A random NSFW image category.
+
+*The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/hmtai/types.py`*

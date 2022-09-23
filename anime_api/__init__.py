@@ -1,38 +1,32 @@
 """
 This file contains a list of all the available or planned apis.
 """
-from anime_api.apis.anime_facts_rest_api import AnimeFactsRestAPI
-from anime_api.apis.trace_moe import TraceMoeAPI
-from anime_api.apis.animechan import AnimechanAPI
-from anime_api.apis.waifu_pics import WaifuPicsAPI
-from anime_api.apis.studio_ghibli_api import StudioGhibliAPI
-from anime_api.apis.kyoko import KyokoAPI
-from anime_api.apis.animu import AnimuAPI
+from anime_api import apis
 
 
 # List of tuples (api_name, api_class, api_docs_url, is_available)
 api_list = [
     (
         "Anime Facts Rest API",
-        AnimeFactsRestAPI,
+        apis.AnimeFactsRestAPI,
         "https://chandan-02.github.io/anime-facts-rest-api/",
         True,
     ),
     (
         "Trace.moe API",
-        TraceMoeAPI,
+        apis.TraceMoeAPI,
         "https://soruly.github.io/trace.moe-api/",
         True,
     ),
-    ("Animechan", AnimechanAPI, "https://animechan.vercel.app/guide", True),
+    ("Animechan", apis.AnimechanAPI, "https://animechan.vercel.app/guide", True),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),
-    ("Waifu Pics", WaifuPicsAPI, "https://waifu.pics/docs", True),
-    ("Studio Ghibli API", StudioGhibliAPI, "https://ghibliapi.herokuapp.com/", True),
+    ("Waifu Pics", apis.WaifuPicsAPI, "https://waifu.pics/docs", True),
+    ("Studio Ghibli API", apis.StudioGhibliAPI, "https://ghibliapi.herokuapp.com/", True),
     ("Kitsu", None, "https://kitsu.docs.apiary.io/#", False),
     ("AniList", None, "https://anilist.gitbook.io/anilist-apiv2-docs/", False),
     ("AniDB", None, "https://wiki.anidb.net/w/API", False),
-    ("Kyoko", KyokoAPI, "https://github.com/Elliottophellia/kyoko", True),
-    ("Animu", AnimuAPI, "https://docs.animu.ml/", True),
+    ("Kyoko", apis.KyokoAPI, "https://github.com/Elliottophellia/kyoko", True),
+    ("Animu", apis.AnimuAPI, "https://docs.animu.ml/", True),
     ("AniSearch", None, "https://anisearch.com/developers", False),
     (
         "Anime News Network",
@@ -41,7 +35,7 @@ api_list = [
         False,
     ),
     ("Notify.moe", None, "https://notify.moe/api", False),
-    ("Hmtai", None, "https://hmtai.herokuapp.com/endpoints", False),
+    ("Hmtai", apis.HmtaiAPI, "https://hmtai.herokuapp.com/endpoints", True),
     ("Nekos.life", None, "https://github.com/Nekos-life/nekos.py", False),
     ("NekoBot", None, "https://docs.nekobot.xyz/", False),
     ("Neko-love", None, "https://docs.neko-love.xyz/", False),

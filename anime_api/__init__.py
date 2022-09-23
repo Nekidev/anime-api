@@ -7,6 +7,7 @@ from anime_api.apis.animechan import AnimechanAPI
 from anime_api.apis.waifu_pics import WaifuPicsAPI
 from anime_api.apis.studio_ghibli_api import StudioGhibliAPI
 from anime_api.apis.kyoko import KyokoAPI
+from anime_api.apis.animu import AnimuAPI
 
 
 # List of tuples (api_name, api_class, api_docs_url, is_available)
@@ -31,7 +32,7 @@ api_list = [
     ("AniList", None, "https://anilist.gitbook.io/anilist-apiv2-docs/", False),
     ("AniDB", None, "https://wiki.anidb.net/w/API", False),
     ("Kyoko", KyokoAPI, "https://github.com/Elliottophellia/kyoko", True),
-    ("Animu", None, "https://docs.animu.ml/", False),
+    ("Animu", AnimuAPI, "https://docs.animu.ml/", True),
     ("AniSearch", None, "https://anisearch.com/developers", False),
     (
         "Anime News Network",

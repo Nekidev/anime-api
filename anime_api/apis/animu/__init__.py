@@ -24,7 +24,7 @@ class AnimuAPI:
     Docs: https://docs.animu.ml
     """
 
-    endpoint = "https://api.animu.ml"
+    endpoint = "https://animu.ml/api"
     api_token: str
 
     def __init__(self, api_token: str):
@@ -60,7 +60,7 @@ class AnimuAPI:
             id=response.json()["_id"],
             anime=response.json()["anime"],
             quote=response.json()["quote"],
-            character=response.json()["said"],
+            character=response.json()["author"],
         )
 
     def get_random_waifu(self) -> Waifu:
@@ -78,9 +78,9 @@ class AnimuAPI:
         return Waifu(
             id=response.json()["_id"],
             name=_WaifuName(
-                english=response.json()["name"]["en"],
-                japanese=response.json()["name"]["jp"],
-                alternative=response.json()["name"]["alt"],
+                english=response.json()["names"]["en"],
+                japanese=response.json()["names"]["jp"],
+                alternative=response.json()["names"]["alt"],
             ),
             images=[Image(url=image) for image in response.json()["images"]],
             from_=_WaifuSource(
@@ -88,11 +88,11 @@ class AnimuAPI:
                 type_=response.json()["from"]["type"],
             ),
             statistics=_WaifuStats(
-                favorites=response.json()["stats"]["favs"],
-                love=response.json()["stats"]["love"],
-                hate=response.json()["stats"]["hate"],
-                upvotes=response.json()["stats"]["upvote"],
-                downvotes=response.json()["stats"]["downvote"],
+                favorites=response.json()["statistics"]["fav"],
+                love=response.json()["statistics"]["love"],
+                hate=response.json()["statistics"]["hate"],
+                upvotes=response.json()["statistics"]["upvote"],
+                downvotes=response.json()["statistics"]["downvote"],
             ),
         )
 
@@ -108,9 +108,18 @@ class AnimuAPI:
 
         tags = str(tags) if tags else ""
 
+        params = {
+            "tags": tags
+        }
+
+        if min_length:
+            params["minLength"] = min_length
+        if max_length:
+            params["maxLength"] = max_length
+
         response = requests.get(
             self.endpoint + "/fact",
-            params={"tags": tags},
+            params=params,
             headers={"Auth": self.api_token},
         )
 
@@ -122,3 +131,17 @@ class AnimuAPI:
             fact=response.json()["fact"],
             tags=response.json()["tags"],
         )
+
+    def generate_random_password(self) -> str:
+        """
+        Generates a random password
+        """
+
+        response = requests.get(
+            self.endpoint + "/password", headers={"Auth": self.api_token}
+        )
+
+        if response.status_code != 200:
+            raise exceptions.ServerError(status_code=response.status_code)
+
+        return response.json()["pass"]

@@ -7,3 +7,4 @@ from .animechan import AnimechanAPI
 from .waifu_pics import WaifuPicsAPI
 from .studio_ghibli_api import StudioGhibliAPI
 from .kyoko import KyokoAPI
+from .animu import AnimuAPI

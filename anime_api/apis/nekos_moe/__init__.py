@@ -18,6 +18,7 @@ class NekosMoeAPI:
     """
 
     endpoint = "https://nekos.moe/api/v1"
+    api_token = None
 
     def __init__(
         self,
@@ -29,10 +30,6 @@ class NekosMoeAPI:
             self.api_token = api_token
         elif username and password:
             self.api_token = self.get_api_token(username, password)
-        else:
-            raise ValueError(
-                "You must provide either an API token or a username and password."
-            )
 
     def get_api_token(self, username: str, password: str) -> str:
         """
@@ -63,7 +60,7 @@ class NekosMoeAPI:
 
         response = requests.post(
             f"{self.endpoint}/auth/regen",
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
         )
 
         if response.status_code != 204:
@@ -76,6 +73,8 @@ class NekosMoeAPI:
             self.api_token = self.get_api_token(username, password)
         elif username or password:
             raise ValueError("You must provide both a username and password.")
+        elif username or password:
+            raise ValueError("You must provide a username and password. You provided only one.")
 
         return True
 
@@ -86,7 +85,7 @@ class NekosMoeAPI:
 
         response = requests.get(
             f"{self.endpoint}/user/{user_id}",
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
         )
 
         if response.status_code != 200:
@@ -114,14 +113,16 @@ class NekosMoeAPI:
             _uploads=user.get("uploads"),
         )
 
-    def search_user(self, query: str, limit: int = 20, offset: int = 0) -> typing.List[User]:
+    def search_user(
+        self, query: str, limit: int = 20, offset: int = 0
+    ) -> typing.List[User]:
         """
         Search for a user.
         """
 
         response = requests.post(
             f"{self.endpoint}/users/search",
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
             data={"query": query, "limit": limit, "offset": offset},
         )
 
@@ -138,9 +139,13 @@ class NekosMoeAPI:
                 _username=user.get("username"),
                 _created_at=datetime.datetime.fromisoformat(
                     user["createdAt"].replace("Z", "+00:00")
-                ) if user.get("createdAt") else None,
+                )
+                if user.get("createdAt")
+                else None,
                 _verified=user.get("verified"),
-                _favorites=[Image(_api=self, _id=id) for id in user.get("favorites", [])],
+                _favorites=[
+                    Image(_api=self, _id=id) for id in user.get("favorites", [])
+                ],
                 _favorites_received=user.get("favoritesReceived"),
                 _likes=[Image(_api=self, _id=id) for id in user.get("likes", [])],
                 _likes_received=user.get("likesReceived"),
@@ -158,7 +163,7 @@ class NekosMoeAPI:
 
         response = requests.get(
             f"{self.endpoint}/images/{image_id}",
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
         )
 
         if response.status_code != 200:
@@ -185,7 +190,9 @@ class NekosMoeAPI:
                 _api=self,
                 _id=image["approver"]["id"],
                 _username=image["approver"]["username"],
-            ) if "approver" in image else None,
+            )
+            if "approver" in image
+            else None,
             _favorites=image["favorites"],
             _likes=image["likes"],
         )
@@ -242,7 +249,7 @@ class NekosMoeAPI:
         response = requests.post(
             f"{self.endpoint}/images/search",
             data=json.dumps(params),
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
         )
 
         if response.status_code != 200:
@@ -270,7 +277,9 @@ class NekosMoeAPI:
                     _api=self,
                     _id=image["approver"]["id"],
                     _username=image["approver"]["username"],
-                ) if "approver" in image else None,
+                )
+                if "approver" in image
+                else None,
                 _created_at=datetime.datetime.fromisoformat(
                     image["createdAt"].replace("Z", "+00:00")
                 ),
@@ -285,7 +294,7 @@ class NekosMoeAPI:
 
         response = requests.get(
             f"{self.endpoint}/random/image",
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
             params={"count": count},
         )
 
@@ -312,7 +321,9 @@ class NekosMoeAPI:
                     _api=self,
                     _id=image["approver"]["id"],
                     _username=image["approver"]["username"],
-                ) if "approver" in image else None,
+                )
+                if "approver" in image
+                else None,
                 _created_at=datetime.datetime.fromisoformat(
                     image["createdAt"].replace("Z", "+00:00")
                 ),
@@ -339,7 +350,7 @@ class NekosMoeAPI:
             f"{self.endpoint}/images",
             files={"image": image},
             data={"nsfw": nsfw, "artist": artist, "tags": tags},
-            headers={"Authorization": self.api_token},
+            headers={"Authorization": self.api_token} if self.api_token else None,
         )
 
         if response.status_code != 200:
@@ -353,26 +364,34 @@ class NekosMoeAPI:
         return PendingImage(
             image=Image(
                 _api=self,
-                _id=image_urls['image'].get("id"),
-                _nsfw=image_urls['image'].get("nsfw"),
-                _tags=image_urls['image'].get("tags"),
-                _likes=image_urls['image'].get("likes"),
-                _favorites=image_urls['image'].get("favorites"),
+                _id=image_urls["image"].get("id"),
+                _nsfw=image_urls["image"].get("nsfw"),
+                _tags=image_urls["image"].get("tags"),
+                _likes=image_urls["image"].get("likes"),
+                _favorites=image_urls["image"].get("favorites"),
                 _uploader=User(
                     _api=self,
-                    _id=image_urls['image'].get("uploader", {}).get("id", None),
-                    _username=image_urls['image'].get("uploader", {}).get("username", None),
+                    _id=image_urls["image"].get("uploader", {}).get("id", None),
+                    _username=image_urls["image"]
+                    .get("uploader", {})
+                    .get("username", None),
                 ),
                 _approver=User(
                     _api=self,
-                    _id=image_urls['image'].get("approver", {}).get("id", None),
-                    _username=image_urls['image'].get("approver", {}).get("username", None),
-                ) if "approver" in image_urls['image'] else None,
+                    _id=image_urls["image"].get("approver", {}).get("id", None),
+                    _username=image_urls["image"]
+                    .get("approver", {})
+                    .get("username", None),
+                )
+                if "approver" in image_urls["image"]
+                else None,
                 _created_at=datetime.datetime.fromisoformat(
-                    image_urls['image'].get("createdAt", None).replace("Z", "+00:00")
-                ) if image_urls['image'].get("createdAt", None) else None,
+                    image_urls["image"].get("createdAt", None).replace("Z", "+00:00")
+                )
+                if image_urls["image"].get("createdAt", None)
+                else None,
                 _pending=True,
             ),
-            image_url=image_urls['image_url'],
-            post_url=image_urls['post_url'],
+            image_url=image_urls["image_url"],
+            post_url=image_urls["post_url"],
         )

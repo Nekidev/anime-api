@@ -103,7 +103,6 @@ class NekosMoeAPI:
             _created_at=datetime.datetime.fromisoformat(
                 user["createdAt"].replace("Z", "+00:00")
             ),
-            _verified=user.get("verified"),
             _favorites=[Image(_api=self, _id=id) for id in user.get("favorites", [])],
             _favorites_received=user.get("favoritesReceived"),
             _likes=[Image(_api=self, _id=id) for id in user.get("likes", [])],
@@ -113,7 +112,7 @@ class NekosMoeAPI:
             _uploads=user.get("uploads"),
         )
 
-    def search_user(
+    def search_users(
         self, query: str, limit: int = 20, offset: int = 0
     ) -> typing.List[User]:
         """
@@ -142,7 +141,6 @@ class NekosMoeAPI:
                 )
                 if user.get("createdAt")
                 else None,
-                _verified=user.get("verified"),
                 _favorites=[
                     Image(_api=self, _id=id) for id in user.get("favorites", [])
                 ],
@@ -200,7 +198,7 @@ class NekosMoeAPI:
     def search_images(
         self,
         nsfw: typing.Optional[bool] = None,
-        uploader_username: typing.Optional[str] = None,
+        uploader: typing.Optional[str] = None,
         artist: typing.Optional[str] = None,
         tags: typing.Optional[typing.List[str]] = None,
         sort: typing.Optional[SearchSort] = None,
@@ -218,8 +216,8 @@ class NekosMoeAPI:
         if nsfw is not None:
             params["nsfw"] = nsfw
 
-        if uploader_username:
-            params["uploader"] = uploader_username
+        if uploader:
+            params["uploader"] = uploader
 
         if artist:
             params["artist"] = artist

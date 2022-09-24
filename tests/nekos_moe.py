@@ -59,12 +59,12 @@ def test_get_user_by_id():
     assert user.username
     assert user.id
 
-def test_search_user():
+def test_search_users():
     """
-    Test that the API returns a user.
+    Test that the API returns a list of users.
     """
     api = NekosMoeAPI(USERNAME, PASSWORD)
-    users = api.search_user(query="nekii")
+    users = api.search_users(query="nekii")
     for user in users:
         assert isinstance(user, User)
         assert user.username

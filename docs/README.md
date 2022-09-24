@@ -12,6 +12,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Nekos.life API](#nekoslife-api)
 - [NekoBot API](#nekobot-api)
 - [Neko-Love API](#neko-love-api)
+- [Nekos.moe API](#nekosmoe-api)
 
 ## Installation
 
@@ -1261,3 +1262,175 @@ The `ImageCategory` class has the following sub-classes:
 - `NSFW`
 
 _The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them (well this time is only one) at `anime_api/apis/neko_love/types.py`_
+
+## Nekos.Moe API
+
+The Nekos.Moe API is an API that returns random anime images. The API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI()
+```
+
+### Authorization
+
+You can log in to the API in two different ways:
+
+Using your username and password:
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI(username="YOUR_USERNAME", password="YOUR_PASSWORD")
+```
+
+Using an existent API token:
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI(api_token="YOUR_API_TOKEN")
+```
+
+You can regenerate your API token at any time using the `regenerate_api_token()` method.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI(username="YOUR_USERNAME", password="YOUR_PASSWORD")
+
+api.regenerate_api_token(username="YOUR_USERNAME", password="YOUR_PASSWORD")
+```
+
+If you do not pass the username and password to the `regenerate_api_token()` method, the API token will be regenerated and the API will be logged out.
+
+### `get_user(user_id: str = "@me")`
+
+The `get_user()` method returns a `anime_api.apis.nekos_moe.objects.User` object.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI()
+
+user = api.get_user()
+```
+
+If no argument is passed, the method will return the user that is logged in. If you pass a user ID, the method will return the user with that ID.
+
+### The `User` class
+
+_Supports dynamic loading: **yes**_
+
+The `User` class has the following attributes:
+
+- `id`: (`str`) The user ID.
+- `username`: (`str`) The user's username.
+- `created_at`: (`datetime.datetime`) The date when the user was created.
+- `favorites`: (`List[Image]`) A list of the user's favorite images.
+- `favorites_received`: (`int`) The number of favorites the user has received.
+- `likes`: (`List[Image]`) A list of the user's liked images.
+- `likes_received`: (`int`) The number of likes the user has received.
+- `roles`: (`List[str]`) A list of the user's roles.
+- `saved_tags`: (`List[str]`) A list of the user's saved tags.
+- `uploads`: (`int`) The number of images the user has uploaded.
+
+### The `Image` class
+
+Import path: `anime_api.apis.nekos_moe.objects.Image`
+
+_Supports dynamic loading: **yes**_
+
+The `Image` class has the following attributes:
+
+- `id`: (`str`) The image ID.
+- `url`: (`str`) The image URL.
+- `created_at`: (`datetime.datetime`) The date when the image was created.
+- `nsfw`: (`bool`) Whether the image is NSFW or not.
+- `tags`: (`List[str]`) A list of the image's tags.
+- `uploader`: (`User`) The user that uploaded the image.
+- `favorites`: (`int | None`) The number of favorites the image has received.
+- `likes`: (`int | None`) The number of likes the image has received.
+- `approver`: (`User | None`) The user that approved the image.
+- `artist`: (`str | None`) The image's artist name.
+- `pending`: `bool` Whether the image is pending for approval or not.
+
+### `search_users(query: str, limit: int = 20, offset: int = 0)`
+
+The `search_users()` method returns a list of `User` object.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI()
+
+users = api.search_users(query="username or id")
+```
+
+### `get_image(image_id: str)`
+
+The `get_image()` method returns a `anime_api.apis.nekos_moe.objects.Image` object.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI()
+
+image = api.get_image(image_id="JVnj8jkjN") # Thats an invalid ID
+```
+
+### `search_images(nsfw: bool | None = None, uploader: str | None = None, artist: str | None = None, tags: List[str] | None = None, sort: SearchSort | None = None, posted_before: datetime.datetime | None = None, posted_after: datetime.datetime = None, limit: int = 20, offset: int = 0)`
+
+The `search_images()` method returns a list of `Image` object.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI()
+
+images = api.search_images(nsfw=False, tags=["tag1", "tag2"])
+```
+
+The `anime_api.apis.nekos_moe.types.SearchSort` class has the following properties:
+
+- `NEWEST`
+- `OLDEST`
+- `RELEVANCE`
+- `LIKES`
+
+### `get_random_images(count: int)`
+
+The `get_random_images()` method returns a `anime_api.apis.nekos_moe.objects.Image` object.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekoBotAPI()
+
+images = api.get_random_images(5)
+```
+
+### `upload_image(image: str | bytes, nsfw: bool, tags: List[str], artist: str)`
+
+**WARNING: THIS METHOD HAS NOT BEEN TESTED BECAUSE I CANNOT UPLOAD AN IMAGE EVERY TIME I WANT TO RUN A TEST (I'LL GET BLOCKED FOR SPAMMING). PROCEED WITH PRECAUTION.**
+
+The `upload_image()` method is used to upload an image to Nekos.moe. All arguments are required.
+
+```python3
+from anime_api.apis import NekosMoeAPI
+
+api = NekosMoeAPI(username="YOUR_USERNAME", password="YOUR_PASSWORD")
+
+image = api.upload_image(image="path/to/image.jpg", nsfw=False, tags=["tag1", "tag2"], artist="artist name")
+```
+
+This will return a `anime_api.apis.nekos_moe.objects.PendingImage` object.
+
+### The `PendingImage` class
+
+The `PendingImage` class has the following attributes:
+
+- `image`: (`Image`) The image that was uploaded.
+- `image_url`: (`str`) The image URL. This is the same as `image.url`.
+- `post_url`: (`str`) The URL to the post on Nekos.moe.

@@ -15,7 +15,6 @@ class User:
     _id: str
     _username: typing.Optional[str] = None
     _created_at: typing.Optional[datetime.datetime] = None
-    _verified: typing.Optional[bool] = None
     _favorites: typing.Optional[typing.List['Image']] = None
     _favorites_received: typing.Optional[int] = None
     _likes: typing.Optional[typing.List['Image']] = None
@@ -33,7 +32,6 @@ class User:
 
         self._username = user_info._username
         self._created_at = user_info._created_at
-        self._verified = user_info._verified
         self._favorites = user_info._favorites
         self._favorites_received = user_info._favorites_received
         self._likes = user_info._likes
@@ -82,17 +80,6 @@ class User:
             self.load()
 
         return self._created_at
-
-    @property
-    def verified(self) -> bool:
-        """
-        Check if the user is verified
-        """
-
-        if not self.is_loaded and self._verified is None:
-            self.load()
-
-        return self._verified
 
     @property
     def favorites(self) -> typing.List[str]:

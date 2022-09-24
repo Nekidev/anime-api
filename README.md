@@ -57,7 +57,7 @@ These are the currently supported and planned to add support for APIs:
 | NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
 | Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ✅        |
 | Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |
-| Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ❌        |
+| Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ✅        |
 | Shikimori                   | [Documentation](https://shikimori.one/api/doc)                                      | ❌        |
 | MangaDex                    | [Documentation](https://api.mangadex.org/docs.html)                                 | ❌        |
 | Danbooru                    | [Documentation](https://danbooru.donmai.us/wiki_pages/help:api)                     | ❌        |
@@ -96,8 +96,16 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Get a different image every time
   - Completely free
 - NekoBot
+  - Lots of different neko images
   - Image generation (memes, ships, etc.)
   - Get random images from 30 different categories
+  - SFW and NSFW images
+  - Completely free
+- Nekos.moe
+  - Lots of different neko images
+  - Advanced image search
+  - Upload images
+  - Like and favorite images
   - SFW and NSFW images
   - Completely free
 

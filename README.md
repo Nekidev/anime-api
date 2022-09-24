@@ -66,6 +66,7 @@ These are the currently supported and planned to add support for APIs:
 | Waifus.im                   | [Documentation](https://waifu.im/)                                                  | ❌        |
 | Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
+| AniBase                     | Not released                                                                        | ❌        |
 
 
 ### APIs by feature

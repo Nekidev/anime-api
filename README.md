@@ -56,7 +56,7 @@ These are the currently supported and planned to add support for APIs:
 | Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
 | NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
 | Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ✅        |
-| Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |
+| Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ✅        |
 | Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ✅        |
 | Shikimori                   | [Documentation](https://shikimori.one/api/doc)                                      | ❌        |
 | MangaDex                    | [Documentation](https://api.mangadex.org/docs.html)                                 | ❌        |
@@ -108,6 +108,16 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Like and favorite images
   - SFW and NSFW images
   - Get any amount of random images
+  - Completely free
+- Nekos.best
+  - Lots of different neko images
+  - Get random images from +35 different categories
+  - Get many random images with a single API call
+  - Search for images by category, format and more
+  - Fully SFW
+  - 99.9% uptime
+  - Fast response times
+  - Get all image's source
   - Completely free
 
 

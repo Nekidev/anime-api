@@ -13,6 +13,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [NekoBot API](#nekobot-api)
 - [Neko-Love API](#neko-love-api)
 - [Nekos.moe API](#nekosmoe-api)
+- [Nekos.best](#nekosbest)
 
 ## Installation
 
@@ -1434,3 +1435,94 @@ The `PendingImage` class has the following attributes:
 - `image`: (`Image`) The image that was uploaded.
 - `image_url`: (`str`) The image URL. This is the same as `image.url`.
 - `post_url`: (`str`) The URL to the post on Nekos.moe.
+
+## Nekos.best
+
+The Nekos.best API is an API to get a variety of random (or not so random) anime images. The `NekosBest` class can be imported from `anime_api.apis`.
+
+```python3
+from anime_api.apis import NekosBest
+
+api = NekosBest()
+```
+
+### `get_random_image(category: ImageCategory)`
+
+The `get_random_image()` method returns a `anime_api.apis.nekos_best.objects.Image` object.
+
+```python3
+from anime_api.apis import NekosBest
+
+api = NekosBest()
+
+image = api.get_random_image(category=ImageCategory.ANIME)
+```
+
+The `anime_api.apis.nekos_best.types.ImageCategory` class has the following properties:
+
+- `HIGHFIVE`
+- `HAPPY`
+- `SLEEP`
+- `HANDHOLD`
+- `LAUGH`
+- `BITE`
+- `POKE`
+- `TICKLE`
+- `KISS`
+- `WAVE`
+- `THUMBSUP`
+- `STARE`
+- `CUDDLE`
+- `SMILE`
+- `BAKA`
+- `BLUSH`
+- `THINK`
+- `POUT`
+- `FACEPALM`
+- `WINK`
+- `SHOOT`
+- `SMUG`
+- `PAT`
+- `PUNCH`
+- `DANCE`
+- `FEED`
+- `SHRUG`
+- `BORED`
+- `KICK`
+- `HUG`
+- `YEET`
+- `SLAP`
+- `NEKO`
+- `HUSBANDO`
+- `KITSUNE`
+- `WAIFU`
+
+### The `Image` class
+
+The `Image` class has the following attributes:
+
+- `url`: (`str`) The image URL.
+- `artist`: (`Artist | None`)
+  - `artist.name`: (`str`) The artist's name.
+  - `artist.url`: (`str`) The artist's URL.
+- `anime`: (`Anime | None`)
+  - `anime.title`: (`str`) The anime's title.
+- `source_url`: (`str | None`) The source URL of the image.
+
+### `search_images(query: str, image_category: ImageCategory | None = None, image_type: ImageType | None = None, amount: int = 1)`
+
+The `search_images()` method returns a list of `Image` object.
+
+```python3
+from anime_api.apis import NekosBest
+from anime_api.apis.nekos_best.types import ImageCategory, ImageType
+
+api = NekosBest()
+
+images = api.search_images(query="cute neko", image_category=ImageCategory.NEKO, image_type=ImageType.GIF, amount=5)
+```
+
+The `anime_api.apis.nekos_best.types.ImageType` class has the following properties:
+
+- `IMAGE`: Return only static images
+- `GIF`: Return only GIFs

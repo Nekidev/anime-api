@@ -38,7 +38,7 @@ api_list = [
     ("Hmtai", apis.HmtaiAPI, "https://hmtai.herokuapp.com/endpoints", True),
     ("Nekos.life", None, "https://github.com/Nekos-life/nekos.py", False),
     ("NekoBot", apis.NekoBotAPI, "https://docs.nekobot.xyz/", True),
-    ("Neko-love", None, "https://docs.neko-love.xyz/", False),
+    ("Neko-love", apis.NekoLoveAPI, "https://docs.neko-love.xyz/", True),
     ("Nekos.moe", None, "https://docs.nekos.moe/", False),
     ("Nekos.best", None, "https://docs.nekos.best/", False),
     ("Shikimori", None, "https://shikimori.one/api/doc", False),

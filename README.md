@@ -55,7 +55,7 @@ These are the currently supported and planned to add support for APIs:
 | Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ✅        |
 | Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
 | NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
-| Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ❌        |
+| Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ✅        |
 | Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ❌        |
 | Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ❌        |
 | Shikimori                   | [Documentation](https://shikimori.one/api/doc)                                      | ❌        |

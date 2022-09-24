@@ -11,6 +11,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Animu API](#animu-api)
 - [Nekos.life API](#nekoslife-api)
 - [NekoBot API](#nekobot-api)
+- [Neko-Love API](#neko-love-api)
 
 ## Installation
 
@@ -1217,3 +1218,46 @@ image = api.generate_image(image_type=ImageGenType.SHIP, url1="https://someimage
 ```
 
 Each keyword parameter is the same as the query parameter name in the documentation.
+
+## Neko-Love API
+
+The Neko-Love API is an API that returns random anime images. The API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import NekoLoveAPI
+
+api = NekoLoveAPI()
+```
+
+### `get_random_image(category: ImageCategory.NSFW | ImageCategory.SFW)`
+
+The `get_random_image()` method returns a `anime_api.apis.neko_love.objects.Image` object.
+
+```python3
+from anime_api.apis import NekoLoveAPI
+
+api = NekoLoveAPI()
+
+image = api.get_random_image(category=ImageCategory.SFW.NEKO)
+```
+
+The `image` variable will be a `anime_api.apis.neko_love.objects.Image` object. This has a `url` parameter that contains the url of the image and a `nsfw` parameter indicating wether the image is NSFW or not.
+
+### The `ImageCategory` class
+
+The `ImageCategory` class has the following sub-classes:
+
+- `SFW`
+  - `NEKO`
+  - `KITSUNE`
+  - `HUG`
+  - `PAT`
+  - `WAIFU`
+  - `CRY`
+  - `KISS`
+  - `SLAP`
+  - `SMUG`
+  - `PUNCH`
+- `NSFW`
+
+_The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them (well this time is only one) at `anime_api/apis/neko_love/types.py`_

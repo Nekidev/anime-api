@@ -1,3 +1,4 @@
+# The Anime API Project
 
 ![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
 
@@ -94,6 +95,11 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Get 30 different images with a single API call
   - Get a different image every time
   - Completely free
+- NekoBot
+  - Image generation (memes, ships, etc.)
+  - Get random images from 30 different categories
+  - SFW and NSFW images
+  - Completely free
 
 
 #### Facts
@@ -160,7 +166,7 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Completely free
 
 
-#### Games
+#### Entertainment
 
 - Nekos.life
   - Get an answer from an 8ball with an aditional image of an 8ball showing the answer.
@@ -192,10 +198,47 @@ You know what you want to do, but have no idea of what API will work for you? Th
 
 ## Contributing
 
-Go ahead and make your pull request 🍴
+Read the following before contributing:
+
+
+### Adding an API
+
+If you want to add an API to the list, please make sure that:
+
+- The API is free to use
+- The API is anime-related (or manga-related)
+- You follow the same architecture as the other API wrappers
+- Document the code you write
+- Add all the necessary tests to the `tests` folder
+
+
+### Fixing an API wrapper
+
+Before fixing an API wrapper, please make sure that:
+
+- The bug is not being fixed in another PR
+- The bug is actually a bug and not a feature (xd)
+- The bug is not a bug from the API itself
+- You have created an issue. If you have not created an issue, please create one before fixing the bug.
+
+
+### Requesting a new API
+
+If you want to request a new API, please make sure that:
+
+- The API is free to use
+- The API is anime-related (or manga-related)
+- It is not already in the list (wether available or not)
+
+Once you have checked this, please create an issue with the following information:
+
+- The name of the API
+- The API docs link
+- List of all the features the API has
 
 
 ## Mantainers
+
 <table>
   <tr>
     <td style="align:center;">

@@ -46,7 +46,7 @@ class NekoBotAPI:
         )
 
     def get_random_image(
-        self, category: typing.Union[ImageCategory.SFW, ImageCategory.NSFW]
+        self, category: typing.Union[ImageCategory.SFW, ImageCategory.NSFW, ImageCategory.BOTH]
     ) -> Image:
         """
         Returns a random image from the given category

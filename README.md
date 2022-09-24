@@ -107,6 +107,7 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Upload images
   - Like and favorite images
   - SFW and NSFW images
+  - Get any amount of random images
   - Completely free
 
 

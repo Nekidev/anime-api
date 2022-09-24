@@ -10,20 +10,21 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Kyoko API](#kyoko-api)
 - [Animu API](#animu-api)
 - [Nekos.life API](#nekoslife-api)
-
+- [NekoBot API](#nekobot-api)
 
 ## Installation
 
 Using pip:
+
 ```bash
 pip install anime-api
 ```
 
 Using Poetry:
+
 ```bash
 poetry add anime-api
 ```
-
 
 ### List of all API wrappers
 
@@ -34,7 +35,6 @@ from anime_api import api_list
 ```
 
 The list contains a `tuple` with 4 items for each API. For each `api` in the list, `api[0]` is the API name, `api[1]` is the wrapper class (or `None` if not available), `api[2]` is the documentation URL, and `api[3]` is a boolean that will be true or false depending of the availability of the API (`True` if available, otherwise `False`).
-
 
 ## Anime Facts Rest API
 
@@ -48,7 +48,6 @@ from anime_api.apis import AnimeFactsRestAPI
 api = AnimeFactsRestApi()
 ```
 
-
 ### `get_animes()`
 
 The `get_animes` method returns a list of `anime_api.apis.anime_facts_rest_api.objects.Anime` objects.
@@ -60,7 +59,6 @@ api = AnimeFactsRestAPI()
 
 animes = api.get_animes()
 ```
-
 
 ### The `Anime` class
 
@@ -78,11 +76,9 @@ anime = animes[0]
 facts = anime.facts(api)
 ```
 
-
 ### The `Fact` class
 
 The `Fact` object has 2 parameters: `id` and `fact`. Take into account that, although the official API says the `id` is the fact's ID, it seems to be the number of the fact in the response.
-
 
 ### `get_anime_facts(anime_name: str)`
 
@@ -96,7 +92,6 @@ api = AnimeFactsRestAPI()
 facts = api.get_anime_facts(anime_name="bleach")
 ```
 
-
 ### `get_fact(anime_name: str, fact_id: int)`
 
 The `get_fact()` method needs 2 arguments: `anime_name` and `fact_id`. This method returns a `Fact`.
@@ -107,8 +102,7 @@ from anime_api.apis import AnimeFactsRestAPI
 api = AnimeFactsRestAPI()
 
 fact = api.get_fact(anime_name="fma_brotherhood", fact_id=1)
-``` 
-
+```
 
 ## Trace.moe API
 
@@ -122,12 +116,12 @@ from anime_api.apis import TraceMoeAPI
 api = TraceMoeAPI()
 ```
 
-
 ### `search(file: File, get_anime_info: bool = True, cut_black_borders: bool = False)`
 
 The Trace.moe API wrapper has only 1 method. This method is used to get the anime scene from where the screenshot was taken. You will need to pass the screenshot either as a bytes object with its `content_type` (`image/png`, `image/jpeg`, `video/mp4`, etc.), or a URL string (no `content_type` required).
 
 With a url:
+
 ```python3
 from anime_api.apis import TraceMoeAPI
 from anime_api.apis.trace_moe_api import File
@@ -138,6 +132,7 @@ result = api.search(file=File(url="https://i.imgur.com/1ZQ3Z4A.png"))
 ```
 
 With a bytes object:
+
 ```python3
 from anime_api.apis import TraceMoeAPI
 from anime_api.apis.trace_moe_api import File
@@ -184,7 +179,6 @@ Parameters:
 
 If the `get_anime_info` was set to `False` when calling the `search()` method, all the `anime` parameters will be `None` except for `anilist_id`.
 
-
 ## Animechan API
 
 The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.vercel.app/).
@@ -196,7 +190,6 @@ from anime_api.apis import AnimechanAPI
 
 api = AnimechanAPI()
 ```
-
 
 ### `get_random_quote()`
 
@@ -222,7 +215,6 @@ api = AnimechanAPI()
 quotes = api.get_many_random_quotes()
 ```
 
-
 ### `search_by_anime_title(anime_title: str, page: int = 1)`
 
 The `search_by_anime_title()` method returns a list of `anime_api.apis.animechan_api.objects.Quote` objects. The `anime_title` parameter is the title of the anime you want to search for. The `page` parameter is the page number of the results (defaults to 1).
@@ -234,7 +226,6 @@ api = AnimechanAPI()
 
 quotes = api.search_by_anime_title(anime_title="naruto")
 ```
-
 
 ### `search_by_character_name(character_name: str, page: int = 1)`
 
@@ -248,7 +239,6 @@ api = AnimechanAPI()
 quotes = api.search_by_character_name(character_name="naruto")
 ```
 
-
 ### `get_animes()`
 
 The `get_animes()` method returns a list of strings. Each item is an anime title.
@@ -261,7 +251,6 @@ api = AnimechanAPI()
 animes = api.get_animes()
 ```
 
-
 ## Waifu.pics API
 
 The Waifu.pics API is an API to get anime images. The API documentation can be found [here](https://waifu.pics/docs).
@@ -273,7 +262,6 @@ from anime_api.apis import WaifuPicsAPI
 
 api = WaifuPicsAPI()
 ```
-
 
 ### `get_random_image(category: ImageCategory.SFW | ImageCategory.NSFW)`
 
@@ -289,7 +277,6 @@ image = api.get_random_image(category=ImageCategory.SFW.WAIFU)
 ```
 
 The `image` variable will be a `anime_api.apis.waifu_pics_api.objects.Image` object. This has a `url` parameter which is the URL of the image.
-
 
 ### The `ImageCategory` class
 
@@ -331,8 +318,7 @@ The `ImageCategory` class has 2 sub-classes `SFW` and `NSFW`. Each subclass is a
 
 `NSFW` categories:
 
-*The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/waifu_pics/types.py`*
-
+_The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/waifu_pics/types.py`_
 
 ### `get_many_random_images(category: ImageCategory.SFW | ImageCategory.NSFW, exclude: list[str | Image] = [])`
 
@@ -356,7 +342,7 @@ from anime_api.apis.waifu_pics_api.types import ImageCategory
 api = WaifuPicsAPI()
 
 images = api.get_many_random_images(
-  category=ImageCategory.SFW.WAIFU, 
+  category=ImageCategory.SFW.WAIFU,
   exclude=[
     "https://example.com/img.png",
     Image(url="https://example.com/other-img.png")
@@ -364,7 +350,7 @@ images = api.get_many_random_images(
 )
 ```
 
-*The URL strings and the Image objects can be combined in the `exclude` list.*
+_The URL strings and the Image objects can be combined in the `exclude` list._
 
 This parameter can be useful to get a list of images without duplicates.
 
@@ -379,7 +365,6 @@ images2 = api.get_many_random_images(category=ImageCategory.SFW.WAIFU, exclude=i
 
 images_list = images1 + images2
 ```
-
 
 ## Studio Ghibli API
 
@@ -418,7 +403,6 @@ people.name
 people.eye_color
 ```
 
-
 ### `get_animes()`
 
 The `get_animes()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Anime` objects.
@@ -430,7 +414,6 @@ api = StudioGhibliAPI()
 
 animes = api.get_animes()
 ```
-
 
 ### `get_anime(anime_id: str)`
 
@@ -466,7 +449,6 @@ The `Anime` class has the following attributes:
 - `locations: list[Location]` (loads dynamically)
 - `vehicles: list[Vehicle]` (loads dynamically)
 
-
 ### `get_people()`
 
 The `get_people()` method returns a list of `anime_api.apis.studio_ghibli_api.objects.Person` objects.
@@ -491,10 +473,9 @@ api = StudioGhibliAPI()
 person = api.get_person(person_id="ba924631-068e-4436-b6de-f3283fa848f0")
 ```
 
-
 ### The `Person` class
 
-*Dynamic loading of relationships: **Yes***
+\*Dynamic loading of relationships: **Yes\***
 
 The `Person` class has the following attributes:
 
@@ -506,7 +487,6 @@ The `Person` class has the following attributes:
 - `hair_color: str`
 - `animes: list[Anime]` (loads dynamically)
 - `species: Species` (loads dynamically)
-
 
 ### `get_species()`
 
@@ -532,12 +512,11 @@ api = StudioGhibliAPI()
 species = api.get_single_species(species_id="af3910a6-429f-4c74-9ad5-dfe1c4aa04f4")
 ```
 
-*(Note: because species is singular and plural, the method had to be renamed to `get_single_species`)*
-
+_(Note: because species is singular and plural, the method had to be renamed to `get_single_species`)_
 
 ### The `Species` class
 
-*Dynamic loading of relationships: **Yes***
+\*Dynamic loading of relationships: **Yes\***
 
 The `Species` class has the following attributes:
 
@@ -548,7 +527,6 @@ The `Species` class has the following attributes:
 - `hair_colors: str`
 - `people: list[Person]` (loads dynamically)
 - `animes: list[Anime]` (loads dynamically)
-
 
 ### `get_locations()`
 
@@ -562,7 +540,6 @@ api = StudioGhibliAPI()
 locations = api.get_locations()
 ```
 
-
 ### `get_location(location_id: str)`
 
 The `get_location()` method returns a `anime_api.apis.studio_ghibli_api.objects.Location` object. The `location_id` parameter is the ID of the location you want to get.
@@ -575,10 +552,9 @@ api = StudioGhibliAPI()
 location = api.get_location(location_id="c491755a-407d-4d6e-b58a-240ec78b5063")
 ```
 
-
 ### The `Location` class
 
-*Dynamic loading of relationships: **Yes***
+\*Dynamic loading of relationships: **Yes\***
 
 The `Location` class has the following attributes:
 
@@ -589,7 +565,6 @@ The `Location` class has the following attributes:
 - `surface_water: str`
 - `residents: list[Person]` (loads dynamically)
 - `animes: list[Anime]` (loads dynamically)
-
 
 ### `get_vehicles()`
 
@@ -603,7 +578,6 @@ api = StudioGhibliAPI()
 vehicles = api.get_vehicles()
 ```
 
-
 ### `get_vehicle(vehicle_id: str)`
 
 The `get_vehicle()` method returns a `anime_api.apis.studio_ghibli_api.objects.Vehicle` object. The `vehicle_id` parameter is the ID of the vehicle you want to get.
@@ -616,10 +590,9 @@ api = StudioGhibliAPI()
 vehicle = api.get_vehicle(vehicle_id="f25fa661-3073-414d-968a-34e18709c560")
 ```
 
-
 ### The `Vehicle` class
 
-*Dynamic loading of relationships: **Yes***
+\*Dynamic loading of relationships: **Yes\***
 
 The `Vehicle` class has the following attributes:
 
@@ -630,7 +603,6 @@ The `Vehicle` class has the following attributes:
 - `length: str`
 - `pilot: Person` (loads dynamically)
 - `animes: list[Anime]` (loads dynamically)
-
 
 ## Kyoko API
 
@@ -644,7 +616,6 @@ from anime_api.apis import KyokoAPI
 api = KyokoAPI()
 ```
 
-
 ### `get_random_quote()`
 
 The `get_random_quote()` method returns a `anime_api.apis.kyoko_api.objects.Quote` object.
@@ -657,7 +628,6 @@ api = KyokoAPI()
 quote = api.get_random_quote()
 ```
 
-
 ### The `Quote` class
 
 The `Quote` class has 4 parameters:
@@ -666,7 +636,6 @@ The `Quote` class has 4 parameters:
 - `character`: The character name.
 - `quote`: The quote.
 - `id`: The quote ID.
-
 
 ### `get_random_slap()`
 
@@ -682,7 +651,6 @@ image = api.get_random_slap()
 
 The `image` variable will be a `anime_api.apis.kyoko_api.objects.Image` object. This has a `url` parameter which is the URL of the image.
 
-
 ### `get_random_kiss()`
 
 The `get_random_kiss()` method returns a `anime_api.apis.kyoko_api.objects.Image` object.
@@ -695,7 +663,6 @@ api = KyokoAPI()
 image = api.get_random_kiss()
 ```
 
-
 ### `get_random_hug()`
 
 The `get_random_hug()` method returns a `anime_api.apis.kyoko_api.objects.Image` object.
@@ -707,7 +674,6 @@ api = KyokoAPI()
 
 image = api.get_random_hug()
 ```
-
 
 ## Animu API
 
@@ -723,8 +689,7 @@ api_token = "YOUR_API_TOKEN"
 api = AnimuAPI(api_token=api_token)
 ```
 
-This API requires an API token. It is free while you keep in their Discord server. 
-
+This API requires an API token. It is free while you keep in their Discord server.
 
 ### How to get an API token
 
@@ -736,7 +701,6 @@ This API requires an API token. It is free while you keep in their Discord serve
 6. Copy your API token
 
 Note that if you leave the Discord server, your API token will be revoked.
-
 
 ### `get_random_image(category: ImageCategory)`
 
@@ -820,11 +784,9 @@ The `ImageType` enum has the following values:
 - `WINK`
 - `YES`
 
-
 ### The `Image` class
 
 The `Image` class has a `url` property which contains the url of the image.
-
 
 ### `get_random_quote()`
 
@@ -842,7 +804,6 @@ quote: Quote = api.get_random_quote()
 
 The `quote` variable will be a `anime_api.apis.animu_api.objects.Quote` object.
 
-
 ### The `Quote` class
 
 The `Quote` class has 4 parameters:
@@ -851,7 +812,6 @@ The `Quote` class has 4 parameters:
 - `character`: The character name.
 - `quote`: The quote.
 - `id`: The quote ID.
-
 
 ### `get_random_waifu()`
 
@@ -868,7 +828,6 @@ waifu: Waifu = api.get_random_waifu()
 ```
 
 The `waifu` variable will be a `anime_api.apis.animu_api.objects.Waifu` object.
-
 
 ### The `Waifu` class
 
@@ -892,7 +851,6 @@ The `Waifu` class has 5 parameters:
   - `statistics.upvotes`: The number of upvotes.
   - `statistics.downvotes`: The number of downvotes.
 
-
 ### `get_random_password()`
 
 The `get_random_password()` method returns a string.
@@ -907,7 +865,6 @@ api = AnimuAPI(api_token=api_token)
 password: str = api.get_random_password()
 ```
 
-
 ### `get_random_fact(tags: str | AND | OR, min_length: int | None = None, max_length: int | None = None)`
 
 The `get_random_fact()` method returns a `anime_api.apis.animu_api.objects.Fact` object.
@@ -921,7 +878,6 @@ api = AnimuAPI(api_token=api_token)
 
 fact: Fact = api.get_random_fact()
 ```
-
 
 #### Operators
 
@@ -944,7 +900,6 @@ fact2: Fact = api.get_random_fact(tags=OR("pokemon", "AttackOnTitan", "SwordArtO
 fact3: Fact = api.get_random_fact(tags="pokemon")
 ```
 
-
 ### The `Fact` class
 
 The `Fact` class has 3 parameters:
@@ -952,7 +907,6 @@ The `Fact` class has 3 parameters:
 - `id`: The fact ID.
 - `fact`: The fact.
 - `tags`: A list of strings.
-
 
 ### `generate_random_password()`
 
@@ -968,7 +922,6 @@ api = AnimuAPI(api_token=api_token)
 password: str = api.generate_random_password()
 ```
 
-
 ## Hmtai
 
 The Hmtai API is an API that returns random anime images, both SFW and NSFW. This can be imported from the `anime_api.apis` module.
@@ -978,7 +931,6 @@ from anime_api.apis import HmtaiAPI
 
 api = HmtaiAPI()
 ```
-
 
 ### `get_random_image(category: ImageCategory.SFW | ImageCategory.NSFW)`
 
@@ -998,12 +950,12 @@ The `image` variable will be a `anime_api.apis.hmtai.objects.Image` object. This
 - `url`: The url of the image.
 - `nsfw`: A boolean that indicates if the image is NSFW or not.
 
-
 ### The `ImageCategory` class
 
 The `ImageCategory` class has 2 sub-classes:
 
 - `SFW`: The SFW image categories.
+
   - `WAVE`
   - `WINK`
   - `TEA`
@@ -1050,8 +1002,7 @@ The `ImageCategory` class has 2 sub-classes:
 - `NSFW`: The NSFW image categories.
   - `RANDOM`: A random NSFW image category.
 
-*The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/hmtai/types.py`*
-
+_The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/hmtai/types.py`_
 
 ## Nekos.life API
 
@@ -1062,7 +1013,6 @@ from anime_api.apis import NekosLifeAPI
 
 api = NekosLifeAPI()
 ```
-
 
 ### `get_random_image(category: ImageCategory)`
 
@@ -1078,7 +1028,6 @@ image = api.get_random_image(category=ImageCategory.WAVE)
 ```
 
 The `image` variable will be a `anime_api.apis.nekos_life.objects.Image` object. This has a single `url` parameter that contains the url of the image.
-
 
 ### The `ImageCategory` Enum
 
@@ -1108,7 +1057,6 @@ The `ImageCategory` enum has the following values:
 - `LEWD`
 - `NGIF`
 
-
 ### `get_random_cat_emoji()`
 
 The `get_random_cat_emoji()` returns a random cat text emoji (ex: `=^._.^=`).
@@ -1120,7 +1068,6 @@ api = NekosLifeAPI()
 
 emoji = api.get_random_cat_emoji()
 ```
-
 
 ### `get_random_fact()`
 
@@ -1136,7 +1083,6 @@ fact = api.get_random_fact()
 
 The `fact` variable will be an `anime_api.apis.nekos_life.objects.Fact` object. This has a single `fact` parameter that contains the fact.
 
-
 ### `get_random_name()`
 
 The `get_random_name()` returns a randomly generated name as a string.
@@ -1149,10 +1095,9 @@ api = NekosLifeAPI()
 name = api.get_random_name()
 ```
 
-
 ### `owoify(text: str)`
 
-The `owoify()` method *owoifies* a string. For example, `hello developer` becomes `hewwo devewopew`.
+The `owoify()` method _owoifies_ a string. For example, `hello developer` becomes `hewwo devewopew`.
 
 ```python3
 from anime_api.apis import NekosLifeAPI
@@ -1161,7 +1106,6 @@ api = NekosLifeAPI()
 
 owoified_text = api.owoify("hello developer")
 ```
-
 
 ### `spoiler(text: str)`
 
@@ -1175,7 +1119,6 @@ api = NekosLifeAPI()
 spoilered_text = api.spoiler("hello developer")
 ```
 
-
 ### `get_random_why()`
 
 The `get_random_why()` method returns a random `why` question (ex: Why did ... ?).
@@ -1187,7 +1130,6 @@ api = NekosLifeAPI()
 
 why = api.get_random_why()
 ```
-
 
 ### `get_eight_ball()`
 
@@ -1202,3 +1144,76 @@ answer = api.get_eight_ball()
 ```
 
 The `answer` variable will be an `anime_api.apis.nekos_life.objects.EightBall` object. This has a `answer` property that contains the answer. Aditionally, it has a `image` property that contains an `Image` object with the url of an 8ball showing the answer.
+
+## NekoBot API
+
+The NekoBot API is an API that returns random anime images. The API wrapper can be imported from the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import NekoBotAPI
+
+api = NekoBotAPI()
+```
+
+If you have a donator API key, you can pass it to the `NekoBotAPI` object when initializing it.
+
+```python3
+from anime_api.apis import NekoBotAPI
+
+api = NekoBotAPI(donator_api_key="YOUR_API_KEY")
+```
+
+### `get_random_image(category: ImageCategory)`
+
+The `get_random_image()` method returns a `anime_api.apis.nekobot.objects.Image` object.
+
+```python3
+from anime_api.apis import NekoBotAPI
+
+api = NekoBotAPI()
+
+image = api.get_random_image(category=ImageCategory.WAVE)
+```
+
+The `image` variable will be a `anime_api.apis.nekobot.objects.Image` object. This has a single `url` parameter that contains the url of the image.
+
+### The `ImageCategory` class
+
+The `ImageCategory` class has the following sub-classes:
+
+- `SFW`: The SFW image categories.
+  - `KEMONOMIMI`
+  - `KANNA`
+  - `GAH`
+  - `COFFEE`
+  - `FOOD`
+- `NSFW`: The NSFW image categories.
+- `BOTH`: This categories can return SFW or suggestive images. These endpoints have been marked in a specific category because the age rating is not always clear. It should be treated as NSFW fr security reasons (and the API wrapper will do so).
+
+_The NSFW and BOTH properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/nekobot/types.py`_
+
+### `gerate_image(image_type: ImageGenType, **kwargs)`
+
+The `generate_image()` method returns a `anime_api.apis.nekobot.objects.Image` object.
+
+```python3
+from anime_api.apis import NekoBotAPI
+
+api = NekoBotAPI()
+
+image = api.generate_image(image_type=ImageGenType.LOLICE, url="https://someimage.url")
+```
+
+This method is difficult to document because each image type has different parameters. You can find each type's parameter in the [official documentation](https://docs.nekobot.xyz/#image-generation-ddlc). The parameters required in each type need to be passed as keyword arguments.
+
+For example, with `ImageGenType.SHIP` the code should look like this:
+
+```python3
+from anime_api.apis import NekoBotAPI
+
+api = NekoBotAPI()
+
+image = api.generate_image(image_type=ImageGenType.SHIP, url1="https://someimage.url", url2="https://someimage.url")
+```
+
+Each keyword parameter is the same as the query parameter name in the documentation.

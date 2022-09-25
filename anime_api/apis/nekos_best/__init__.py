@@ -63,8 +63,8 @@ class NekosBest:
         Returns a list of images that match the query
         """
 
-        if amount < 1 or amount > 20:
-            raise ValueError("Amount must be between 1 and 20")
+        if amount < 1 or amount > 25:
+            raise ValueError("Amount must be between 1 and 25")
 
         params = {
             "query": query,

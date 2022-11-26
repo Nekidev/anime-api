@@ -44,4 +44,4 @@ class NotFound(ServerError):
     """
 
     def __init__(self, msg: typing.Optional[str] = "Not found", *args, **kwargs):
-        super(self, 404, msg, *args, **kwargs)
+        ServerError.__init__(self, 404, msg, *args, **kwargs)

@@ -76,6 +76,7 @@ class AnimechanAPI:
 
     @staticmethod
     def __check_response_code(status_code: int, msg: str = ''):
-        if status_code != 200:
+        if status_code == 404:
+            raise exceptions.NotFound()
+        elif status_code != 200:
             raise exceptions.ServerError(status_code=status_code, msg=msg)
-    

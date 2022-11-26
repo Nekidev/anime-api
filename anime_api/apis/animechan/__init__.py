@@ -25,10 +25,7 @@ class AnimechanAPI:
         """
         response = requests.get(f"{self.endpoint}/random")
 
-        if response.status_code != 200:
-            raise exceptions.ServerError(
-                status_code=response.status_code,
-            )
+        AnimechanAPI.__check_response_code(response.status_code)
 
         return Quote(**response.json())
 
@@ -38,10 +35,7 @@ class AnimechanAPI:
         """
         response = requests.get(f"{self.endpoint}/quotes")
 
-        if response.status_code != 200:
-            raise exceptions.ServerError(
-                status_code=response.status_code,
-            )
+        AnimechanAPI.__check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
@@ -53,10 +47,7 @@ class AnimechanAPI:
             f"{self.endpoint}/quotes/anime", params={"title": anime_title, "page": page}
         )
 
-        if response.status_code != 200:
-            raise exceptions.ServerError(
-                status_code=response.status_code,
-            )
+        AnimechanAPI.__check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
@@ -69,10 +60,7 @@ class AnimechanAPI:
             params={"name": character_name, "page": page},
         )
 
-        if response.status_code != 200:
-            raise exceptions.ServerError(
-                status_code=response.status_code,
-            )
+        AnimechanAPI.__check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
@@ -82,9 +70,12 @@ class AnimechanAPI:
         """
         response = requests.get(f"{self.endpoint}/available/anime", params={"page": page})
 
-        if response.status_code != 200:
-            raise exceptions.ServerError(
-                status_code=response.status_code,
-            )
+        AnimechanAPI.__check_response_code(response.status_code)
 
         return response.json()
+
+    @staticmethod
+    def __check_response_code(status_code: int, msg: str = ''):
+        if status_code != 200:
+            raise exceptions.ServerError(status_code=status_code, msg=msg)
+    

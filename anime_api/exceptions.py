@@ -36,3 +36,12 @@ class Forbidden(Exception):
     """
     Error raised when the user is not authorized to perform the action.
     """
+
+
+class NotFound(ServerError):
+    """
+    Error raised when the item is not found.
+    """
+
+    def __init__(self, msg: typing.Optional[str] = "Not found", *args, **kwargs):
+        super(self, 404, msg, *args, **kwargs)

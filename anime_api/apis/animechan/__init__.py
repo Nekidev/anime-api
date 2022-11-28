@@ -39,7 +39,7 @@ class AnimechanAPI:
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_anime_title(self, anime_title: str, page: int = 1) -> Quote:
+    def search_by_anime_title(self, anime_title: str, page: int = 1) -> typing.List[Quote]:
         """
         Return a list of quotes from the given anime.
         """
@@ -51,7 +51,7 @@ class AnimechanAPI:
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_character_name(self, character_name: str, page: int = 1) -> Quote:
+    def search_by_character_name(self, character_name: str, page: int = 1) -> typing.List[Quote]:
         """
         Return a list of quotes from the given character.
         """

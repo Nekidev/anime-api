@@ -36,3 +36,9 @@ class Forbidden(Exception):
     """
     Error raised when the user is not authorized to perform the action.
     """
+
+
+class NotFound(Exception):
+    """
+    Error raised when the resource is not found.
+    """

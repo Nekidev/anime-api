@@ -51,7 +51,7 @@ api_list = [
         False,
     ),  # Yandere and Konachan are forks of the same github repo. That's why they have almost-identical apis.
     ("Konachan", None, "https://konachan.com/help/api", False),
-    ("Waifu.im", None, "https://waifu.im/", False),
+    ("Waifu.im", apis.WaifuImAPI, "https://waifu.im/", True),
     ("Catboys", None, "https://catboys.com/api", False),
     (
         "Anime Character Database",

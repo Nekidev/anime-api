@@ -14,6 +14,7 @@ All API wrappers can be imported from `anime_api.apis`. For example, the Anime F
 - [Neko-Love API](#neko-love-api)
 - [Nekos.moe API](#nekosmoe-api)
 - [Nekos.best](#nekosbest)
+- [Waifu.im](#waifuim-api)
 
 ## Installation
 
@@ -1526,3 +1527,123 @@ The `anime_api.apis.nekos_best.types.ImageType` class has the following properti
 
 - `IMAGE`: Return only static images
 - `GIF`: Return only GIFs
+
+
+# Waifu.im API
+
+The Waifu.im API is a public API to get a variety of random (or not so random) anime images. The `WaifuIm` class can be imported from `anime_api.apis`.
+
+```python3
+from anime_api.apis import WaifuImAPI
+
+api = WaifuImAPI()
+```
+
+### `get_random_image(
+  tags: typing.Optional[
+    typing.List[typing.Union[ImageTag.SFW, ImageTag.NSFW]]
+  ] = None,
+  excluded_tags: typing.Optional[
+    typing.List[typing.Union[ImageTag.SFW, ImageTag.NSFW]]
+  ] = None,
+  selected_file: typing.Optional[str] = None,
+  excluded_files: typing.Optional[typing.List[str]] = None,
+  is_nsfw: typing.Optional[bool] = None,
+  is_gif: bool = False,
+  order_by: typing.Optional[SearchSort] = SearchSort.RANDOM,
+  orientation: typing.Optional[ImageOrientation] = None,
+)`
+
+The `get_random_image()` method returns a `anime_api.apis.waifu_im.objects.Image` object.
+
+```python3
+from anime_api.apis import WaifuImAPI
+from anime_api.apis.waifu_im.types import ImageTag, SearchSort, ImageOrientation
+
+api = WaifuImAPI()
+
+image = api.get_random_image(
+  tags=[ImageTag.SFW.WAIFU],
+  excluded_tags=[ImageTag.SFW.MAID],
+  excluded_files=["some-image-signature"],
+  is_nsfw=False,
+  is_gif=False,
+  order_by=SearchSort.RANDOM,
+  orientation=ImageOrientation.LANDSCAPE,
+)
+
+print(image.url)
+```
+
+The `anime_api.apis.waifu_im.types.ImageTag` class has the following properties:
+
+#### SFW
+
+- `MAID`
+- `WAIFU`
+- `MARIN_KITAGAWA`
+- `MORI_CALLIOPE`
+- `RAIDEN_SHOGUN`
+- `OPPAI`
+- `SELFIES`
+- `UNIFORM`
+
+_The NSFW properties return content +18. The names contain obscene content and therefore won't be listed. You can find them at `anime_api/apis/waifu_im/types.py`_
+
+### The `Image` class
+
+The `Image` class has the following attributes:
+
+- `id`: (`str`) The image ID.
+- `signature`: (`str`) The image signature.
+- `extension`: (`str`) The image extension.
+- `favorites`: (`int`) The amount of favorites the image has.
+- `dominant_color`: (`str`) The dominant color of the image.
+- `source`: (`str`) The source of the image.
+- `uploaded_at`: (`datetime.datetime`) The date the image was uploaded.
+- `is_nsfw`: (`bool`) Whether the image is NSFW or not.
+- `dimens`: (`Dimens`)
+  - `dimens.width`: (`int`) The image width.
+  - `dimens.height`: (`int`) The image height.
+- `url`: (`str`) The image URL.
+- `preview_url`: (`str`) The image preview URL.
+- `tags`: (`typing.List[ImageTag]`)
+
+### `get_many_random_images(
+  tags: typing.Optional[
+    typing.List[typing.Union[ImageTag.SFW, ImageTag.NSFW]]
+  ] = None,
+  excluded_tags: typing.Optional[
+    typing.List[typing.Union[ImageTag.SFW, ImageTag.NSFW]]
+  ] = None,
+  included_files: typing.Optional[typing.List[str]] = None,
+  excluded_files: typing.Optional[typing.List[str]] = None,
+  is_nsfw: typing.Optional[bool] = None,
+  is_gif: bool = False,
+  order_by: typing.Optional[SearchSort] = SearchSort.RANDOM,
+  orientation: typing.Optional[ImageOrientation] = None,
+)`
+
+The `get_many_random_images()` method returns a list of 30 `anime_api.apis.waifu_im.objects.Image` objects.
+
+```python3
+from anime_api.apis import WaifuImAPI
+from anime_api.apis.waifu_im.types import ImageTag, SearchSort, ImageOrientation
+
+api = WaifuImAPI()
+
+images = api.get_many_random_images(
+  tags=[ImageTag.SFW.WAIFU],
+  excluded_tags=[ImageTag.SFW.MAID],
+  excluded_files=["some-image-signature"],
+  is_nsfw=False,
+  is_gif=False,
+  order_by=SearchSort.RANDOM,
+  orientation=ImageOrientation.LANDSCAPE,
+)
+
+for image in images:
+  print(image.url)
+```
+
+**Endpoints that require authorization have not yet been implemented.**

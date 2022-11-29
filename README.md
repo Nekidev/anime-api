@@ -63,7 +63,7 @@ These are the currently supported and planned to add support for APIs:
 | Danbooru                    | [Documentation](https://danbooru.donmai.us/wiki_pages/help:api)                     | ❌        |
 | Yandere                     | [Documentation](https://yande.re/help/api)                                          | ❌        |
 | Konachan                    | [Documentation](https://konachan.com/help/api)                                      | ❌        |
-| Waifus.im                   | [Documentation](https://waifu.im/)                                                  | ❌        |
+| Waifu.im                   | [Documentation](https://waifu.im/)                                                  | ✅        |
 | Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
 | AniBase                     | Not released                                                                        | ❌        |

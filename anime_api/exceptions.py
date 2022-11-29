@@ -38,7 +38,10 @@ class Forbidden(Exception):
     """
 
 
-class NotFound(Exception):
+class NotFound(ServerError):
     """
-    Error raised when the resource is not found.
+    Error raised when the item is not found.
     """
+
+    def __init__(self, msg: typing.Optional[str] = "Not found", *args, **kwargs):
+        ServerError.__init__(self, 404, msg, *args, **kwargs)

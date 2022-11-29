@@ -39,7 +39,7 @@ class AnimechanAPI:
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_anime_title(self, anime_title: str, page: int = 1) -> Quote:
+    def search_by_anime_title(self, anime_title: str, page: int = 1) -> typing.List[Quote]:
         """
         Return a list of quotes from the given anime.
         """
@@ -51,7 +51,7 @@ class AnimechanAPI:
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_character_name(self, character_name: str, page: int = 1) -> Quote:
+    def search_by_character_name(self, character_name: str, page: int = 1) -> typing.List[Quote]:
         """
         Return a list of quotes from the given character.
         """
@@ -68,13 +68,20 @@ class AnimechanAPI:
         """
         Return a list of animes.
         """
-        response = requests.get(
-            f"{self.endpoint}/available/anime", params={"page": page}
-        )
+        response = requests.get(f"{self.endpoint}/available/anime", params={"page": page})
+
+        AnimechanAPI.__check_response_code(response.status_code)
 
         AnimechanAPI.__check_response_code(response.status_code)
 
         return response.json()
+
+    @staticmethod
+    def __check_response_code(status_code: int, msg: str = ''):
+        if status_code == 404:
+            raise exceptions.NotFound()
+        elif status_code != 200:
+            raise exceptions.ServerError(status_code=status_code, msg=msg)
 
     @staticmethod
     def __check_response_code(status_code: int, msg: str = ""):

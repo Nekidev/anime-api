@@ -257,6 +257,25 @@ Once you have checked this, please create an issue with the following informatio
 - The API docs link
 - List of all the features the API has
 
+### Environment setup
+
+After cloning the repo, create a new virtual environment:
+
+```
+$ python -m venv .env
+```
+
+Activate the environment:
+
+```
+$ ./.env/Scripts/activate
+```
+
+Install dependencies using [poetry](https://pypi.org/project/poetry/):
+
+```
+$ poetry install
+```
 
 ## Mantainers
 

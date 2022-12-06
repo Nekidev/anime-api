@@ -16,9 +16,6 @@ class AnimechanAPI:
 
     endpoint = "https://animechan.vercel.app/api"
 
-    def __init__(self, endpoint: typing.Optional[str] = None):
-        self.endpoint = endpoint or self.endpoint
-
     def get_random_quote(self) -> Quote:
         """
         Get a random quote from the API.

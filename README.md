@@ -2,7 +2,7 @@
 
 ![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
 
-The Anime API is a collection of wrappers for different types of free anime-related APIs.
+The Anime API is a collection of wrappers for different types of free anime-related APIs. [Discord](https://discord.gg/PgQnuM3YnM)
 
 
 ## Why anime-api (and not others)?

@@ -2,7 +2,7 @@
 
 ![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
 
-The Anime API is a collection of wrappers for different types of free anime-related APIs.
+The Anime API is a collection of wrappers for different types of free anime-related APIs. [Join our Discord server](https://discord.gg/PgQnuM3YnM).
 
 
 ## Why anime-api (and not others)?
@@ -52,7 +52,7 @@ These are the currently supported and planned to add support for APIs:
 | Anisearch                   | [Documentation](https://anisearch.com/developers)                                   | ❌        |
 | Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
 | Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
-| Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ✅        |
+| Hmtai                       | [Documentation](https://hmtai.herokuapp.com/endpoints)                              | ✅ (down) |
 | Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
 | NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
 | Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ✅        |
@@ -67,7 +67,11 @@ These are the currently supported and planned to add support for APIs:
 | Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
 | AniBase                     | Not released                                                                        | ❌        |
+<<<<<<< HEAD
 | Nekos API                   | [Documentation](https://nekos.nekidev.com/docs/rest-api/endpoints)                  | ✅        |
+=======
+| Nekos API                   | [Documentation](https://nekos.nekidev.com/docs)                                     | ❌        |
+>>>>>>> 7e61f35252454f28ba9e7fe52d1ab7defed957ad
 
 
 ### APIs by feature

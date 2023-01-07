@@ -43,7 +43,143 @@ The list contains a `tuple` with 4 items for each API. For each `api` in the lis
 
 ## Nekos API
 
-Nekos API is an actively developed free open-source anime images API that serves anime images. The project is mantained by [Nekidev](https://github.com/Nekidev) and the source code can be found in it's [GitHub repository](https://github.com/Nekidev/nekos-api). You can join the [official Discord server]()
+Nekos API is an actively developed free open-source anime images API that serves anime images. The project is mantained by [Nekidev](https://github.com/Nekidev) and the source code can be found in it's [GitHub repository](https://github.com/Nekidev/nekos-api). You can [join the Discord server](https://discord.gg/PgQnuM3YnM) for more info, support and more.
+
+The Nekos API wrapper is in the `anime_api.apis` module.
+
+```python3
+from anime_api.apis import NekosAPI
+
+# If you own an access token, you can use it with the `token` argument.
+api = NekosAPI()
+```
+
+The wrapper handles ratelimiting by itself. The API's rate limit is currently 1 request per second. If you call two or more methods without waiting a second, the wrappper will sleep until a new request can be made. For example:
+
+```python3
+import time
+
+from anime_api.apis import NekosAPI
+
+
+api = NekosAPI()
+
+# First call, runs normally
+api.get_random_image()
+
+# Has not waited and will be ratelimmited. To prevent this, the wrapper will
+# wait 1 second to make a new request.
+api.get_image_by_id(image_id="some-uuid-v4")
+
+# This simulates some processing your program makes that takes half a second.
+time.sleep(.5)
+
+# A new request is made but, as the previous request was made less than a
+# second ago, the wrapper will wait the missing 500 milliseconds to make the
+# request.
+api.get_category_by_id(category_id="some-uuid-v4")
+```
+
+### `get_random_image(categories: Optional[list] = None)`
+
+The `get_random_image` method returns an `anime_api.apis.nekos_api.objects.Image` object.
+
+```python3
+from anime_api.apis import NekosAPI
+
+api = NekosAPI()
+
+image = api.get_random_image(categories=["kemonomimi"])
+```
+
+### The `Image` class
+
+The `Image` class contains all the information about an image returned from the API. It has the following properties:
+
+- `id`: (`str`) The image's ID.
+- `url`: (`str`) The image's URL.
+- `artist`: (`Optional[Artist]`) The image's artist.
+- `source`: (`Optional[_Source]`) The image's source (original post).
+  - `name`: (`str`) The name of the website where it was first posted.
+  - `url`: (`str`) The link to the original post.
+- `original`: (`Optional[bool]`) Wether the image is drawn by the original author or is a fan art.
+- `nsfw`: (`NsfwLevel`) The image's nsfw level. This property is an `Enum` and can be one of the following:
+  - `NsfwLevel.UNKNOWN`: The nsfw level is unknown (not yet added by the API admins). This level should be considered as NSFW since it may contain this type of content.
+  - `NsfwLevel.SFW`: Completely SFW and for all ages.
+  - `NsfwLevel.QUESTIONABLE`: Ecchi content. Not explicit, but suggestive.
+  - `NsfwLevel.NSFW`: Not Safe For Work. Not explicit, but borderline.
+- `categories`: (`List[Category]`) A list of the image categories.
+- `characters`: (`List[Character]`) A list of all characters that appear in the image.
+- `created_at`: (`datetime.datetime`) The date and time when the image was added to the API.
+- `etag`: (`str`) Useful for caching when requesting the image file.
+- `size`: (`int`) The image file size in bytes.
+- `mimetype`: (`str`) The image file's format.
+- `color`: (`str`) The dominant color in the image in HEX. (i.e. #a0f4c3)
+- `expires`: (`datetime.datetime`) The date and time when the image url expires. Image urls are signed so the expire an hour after requested.
+- `dimens`: (`_Dimens`) The image dimensions. It has the following properties:
+  - `height`: (`int`) The image's height.
+  - `width`: (`int`) The image's width.
+  - `aspect_ratio`: (`str`) The image's aspect ratio. (i.e. 2:3, 1:2, 16:9)
+  - `orientation`: (`ImageOrientation`) This property is an Enum which has 3 possible values:
+    - `ImageOrientation.LANDSCAPE`: The image's width is bigger than it's height.
+    - `ImageOrientation.PORTRAIT`: The image's height is bigger than it's width.
+    - `ImageOrientation.SQUARE`: The image's height is the same as it's width.
+  
+### `get_random_images(categories: Optional[list] = None, limit: int = 10)`
+
+The `get_random_images` method works exactly the same as the `get_random_image` method, but instead or returning a single image, it returns a list of them. You can specify how many images will be returned with the `limit` argument (max 25).
+
+```python3
+from anime_api.apis import NekosAPI
+
+api = NekosAPI()
+
+images = api.get_random_images(categories=["catgirl"])
+
+for image in images:
+  print(image.url)
+```
+
+### `get_image_by_id(image_id: str)`
+
+The `get_image_by_id` method returns an `Image` object with the specified ID.
+
+```python3
+from anime_api.apis import NekosAPI
+
+api = NekosAPI()
+
+image = api.get_image_by_id(image_id="some-uuid-v4")
+
+print(image.url)
+```
+
+IDs identify each image. Take into account that the API ToS do not allow data storage for more than an hour. This means that you cannot store image IDs or any other type of data in your database or any other kind of data storage.
+
+### `get_artist_by_id(artist_id: str)`
+
+The `get_artist_by_id` method returns the information for the specified artist.
+
+```python3
+from anime_api.apis import NekosAPI
+
+api = NekosAPI()
+
+artist = api.get_artist_by_id(artist_id="some-uuid-v4)
+
+print(artist.name)
+```
+
+This method returns an `anime_api.apis.nekos_api.objects.Artist` object.
+
+### The `Artist` class.
+
+The `Artist` class represents an illustrator which has images in the API. It has the following properties:
+
+- `id`: (`str`) The artist's ID.
+- `name`: (`str`) The artist's name.
+- `url`: (`Optional[str]`) A link to the artist's official website/social media account.
+- `images`: (`Optional[int]`) The amount of images uploaded to the API. This property is only present when fetching the artist by ID.
 
 ## Anime Facts Rest API
 

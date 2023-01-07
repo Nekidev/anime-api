@@ -1,5 +1,9 @@
 """
 Run tests for the NekosBest class
+
+Usage:
+    cd tests
+    poetry run python -m pytest nekos_best.py
 """
 from anime_api.apis import NekosBest
 from anime_api.apis.nekos_best.objects import Image

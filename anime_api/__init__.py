@@ -59,4 +59,14 @@ api_list = [
         "http://wiki.animecharactersdatabase.com/index.php?title=API_Access",
         False,
     ),
+    (
+        "Nekos API",
+        apis.NekosAPI,
+        "https://nekos.nekidev.com/docs/rest-api/endpoints",
+        True,
+    ),
 ]
+
+__version__ = '0.15.0'
+__authors__ = ['Nekidev <neki@nekidev.com>']
+__license__ = "MIT License"

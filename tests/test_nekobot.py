@@ -26,8 +26,8 @@ def test_generate_image():
     """
     api = NekoBotAPI()
     image = api.generate_image(
-        ImageGenType.THREATS,
-        url="https://i.pinimg.com/originals/6b/8d/86/6b8d866222ce86cda7e176c0f17cb676.jpg",
+        ImageGenType.CLYDE,
+        text="Hi!"
     )
     assert isinstance(image, Image)
     assert image.nsfw is False

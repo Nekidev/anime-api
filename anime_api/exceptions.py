@@ -13,7 +13,7 @@ class ServerError(Exception):
         self, status_code: int, msg: typing.Optional[str] = None, *args, **kwargs
     ):
         super().__init__(
-            f"The server returned an error{': ' + msg if msg else ''}. (Status code: {status_code})",
+            f"The server returned an error{': ' + msg if msg else '.'} (Status code: {status_code})",
             *args,
             **kwargs,
         )

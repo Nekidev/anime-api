@@ -17,6 +17,20 @@ def test_get_quote():
 
     assert isinstance(quote, Quote), "The return type of get_quote() is not a Quote."
 
+    quote = AnimechanAPI().get_random_quote(anime_title="naruto")
+
+    assert isinstance(quote, Quote), "The return type of get_quote() is not a Quote."
+    assert (
+        quote.anime.lower() == "naruto"
+    ), "The returned quote is not from the selected anime."
+
+    quote = AnimechanAPI().get_random_quote(character_name="naruto uzumaki")
+
+    assert isinstance(quote, Quote), "The return type of get_quote() is not a Quote."
+    assert (
+        quote.character.lower() == "naruto uzumaki"
+    ), "The returned quote is not from the selected character."
+
 
 def test_get_many_random_quotes():
     """
@@ -60,13 +74,3 @@ def test_search_quote_by_character_name():
         quotes, list
     ), "The return type of search_quote_by_character_name() is not a list."
     assert len(quotes) > 0, "The list of quotes is empty."
-
-
-def test_get_animes():
-    """
-    Test the get_animes method. Should return a list of anime titles.
-    """
-    animes = AnimechanAPI().get_animes()
-
-    assert isinstance(animes, list), "The return type of get_animes() is not a list."
-    assert len(animes) > 0, "The list of animes is empty."

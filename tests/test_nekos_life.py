@@ -79,6 +79,8 @@ def test_owoify():
 def test_spoiler():
     """
     Test the spoiler method.
+    Warning: The API endpoint is broken and it will probably won't be fixed.
+    This means that this test WILL FAIL and thats ok.
     """
     api = NekosLifeAPI()
     spoilered = api.spoiler("hello world")

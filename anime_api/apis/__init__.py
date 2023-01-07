@@ -15,3 +15,4 @@ from .neko_love import NekoLoveAPI
 from .nekos_moe import NekosMoeAPI
 from .nekos_best import NekosBest
 from .waifu_im import WaifuImAPI
+from .nekos_api import NekosAPI

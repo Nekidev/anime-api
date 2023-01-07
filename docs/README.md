@@ -2,6 +2,7 @@
 
 All API wrappers can be imported from `anime_api.apis`. For example, the Anime Facts Rest API's wrapper class can be imported from `anime_api.apis.anime_facts_rest_api` or directly from `anime_api.apis`.
 
+- [Nekos API](#nekos-api)
 - [Anime Facts Rest API](#anime-facts-rest-api)
 - [Trace.moe API](#tracemoe-api)
 - [Animechan API](#animechan-api)
@@ -39,6 +40,10 @@ from anime_api import api_list
 ```
 
 The list contains a `tuple` with 4 items for each API. For each `api` in the list, `api[0]` is the API name, `api[1]` is the wrapper class (or `None` if not available), `api[2]` is the documentation URL, and `api[3]` is a boolean that will be true or false depending of the availability of the API (`True` if available, otherwise `False`).
+
+## Nekos API
+
+Nekos API is an actively developed free open-source anime images API that serves anime images. The project is mantained by [Nekidev](https://github.com/Nekidev) and the source code can be found in it's [GitHub repository](https://github.com/Nekidev/nekos-api). You can join the [official Discord server]()
 
 ## Anime Facts Rest API
 

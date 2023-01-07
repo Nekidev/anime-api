@@ -89,7 +89,7 @@ class WaifuImAPI:
         excluded_tags: typing.Optional[
             typing.List[typing.Union[ImageTag.SFW, ImageTag.NSFW]]
         ] = None,
-        selected_file: typing.Optional[str] = None,
+        selected_file: typing.Optional[typing.List[str]] = None,
         excluded_files: typing.Optional[typing.List[str]] = None,
         is_nsfw: typing.Optional[bool] = None,
         is_gif: bool = False,
@@ -104,7 +104,7 @@ class WaifuImAPI:
             many=False,
             tags=tags,
             excluded_tags=excluded_tags,
-            included_files=[selected_file],
+            included_files=selected_file,
             excluded_files=excluded_files,
             is_nsfw=is_nsfw,
             is_gif=is_gif,

@@ -63,11 +63,11 @@ These are the currently supported and planned to add support for APIs:
 | Danbooru                    | [Documentation](https://danbooru.donmai.us/wiki_pages/help:api)                     | ❌        |
 | Yandere                     | [Documentation](https://yande.re/help/api)                                          | ❌        |
 | Konachan                    | [Documentation](https://konachan.com/help/api)                                      | ❌        |
-| Waifu.im                   | [Documentation](https://waifu.im/)                                                  | ✅        |
+| Waifu.im                    | [Documentation](https://waifu.im/)                                                  | ✅        |
 | Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
 | AniBase                     | Not released                                                                        | ❌        |
-| Nekos API                   | Not released                                                                        | ❌        |
+| Nekos API                   | [Documentation](https://nekos.nekidev.com/docs/rest-api/endpoints)                  | ✅        |
 
 
 ### APIs by feature
@@ -77,6 +77,11 @@ You know what you want to do, but have no idea of what API will work for you? Th
 
 #### Images
 
+- Nekos API:
+  - Thousands of anime images
+  - Lots of image metadata
+  - Actively developed (frequent new features, images, categories, and more)
+  - Completely free
 - Animu:
   - Tons of anime gifs and images
   - Get reaction gifs from +60 different categories

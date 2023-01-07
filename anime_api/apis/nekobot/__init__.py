@@ -2,6 +2,8 @@
 Base module for the NekoBot API. Documentation can be found at
 https://docs.nekobot.xyz
 """
+from urllib.parse import quote_plus
+
 import typing
 import requests
 

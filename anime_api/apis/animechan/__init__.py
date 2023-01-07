@@ -2,6 +2,8 @@
 Base module for the Animechan API. The documentation is available at
 https://animechan.vercel.app/guide
 """
+from urllib.parse import quote_plus
+
 import typing
 import requests
 
@@ -19,13 +21,27 @@ class AnimechanAPI:
     def __init__(self, endpoint: typing.Optional[str] = None):
         self.endpoint = endpoint or self.endpoint
 
-    def get_random_quote(self) -> Quote:
+    def get_random_quote(
+        self,
+        anime_title: typing.Optional[str] = None,
+        character_name: typing.Optional[str] = None,
+    ) -> Quote:
         """
         Get a random quote from the API.
         """
-        response = requests.get(f"{self.endpoint}/random")
+        response = requests.get(
+            f"{self.endpoint}/random"
+            + (
+                "/character?name=" + quote_plus(character_name)
+                if character_name
+                else "/anime?title=" + quote_plus(anime_title)
+                if anime_title
+                else ""
+            ),
+            timeout=5
+        )
 
-        AnimechanAPI.__check_response_code(response.status_code)
+        AnimechanAPI._check_response_code(response.status_code)
 
         return Quote(**response.json())
 
@@ -35,11 +51,13 @@ class AnimechanAPI:
         """
         response = requests.get(f"{self.endpoint}/quotes")
 
-        AnimechanAPI.__check_response_code(response.status_code)
+        AnimechanAPI._check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_anime_title(self, anime_title: str, page: int = 1) -> typing.List[Quote]:
+    def search_by_anime_title(
+        self, anime_title: str, page: int = 1
+    ) -> typing.List[Quote]:
         """
         Return a list of quotes from the given anime.
         """
@@ -47,11 +65,13 @@ class AnimechanAPI:
             f"{self.endpoint}/quotes/anime", params={"title": anime_title, "page": page}
         )
 
-        AnimechanAPI.__check_response_code(response.status_code)
+        AnimechanAPI._check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
-    def search_by_character_name(self, character_name: str, page: int = 1) -> typing.List[Quote]:
+    def search_by_character_name(
+        self, character_name: str, page: int = 1
+    ) -> typing.List[Quote]:
         """
         Return a list of quotes from the given character.
         """
@@ -60,25 +80,13 @@ class AnimechanAPI:
             params={"name": character_name, "page": page},
         )
 
-        AnimechanAPI.__check_response_code(response.status_code)
+        AnimechanAPI._check_response_code(response.status_code)
 
         return [Quote(**quote) for quote in response.json()]
 
-    def get_animes(self, page: int = 1) -> typing.List[str]:
-        """
-        Return a list of animes.
-        """
-        response = requests.get(f"{self.endpoint}/available/anime", params={"page": page})
-
-        AnimechanAPI.__check_response_code(response.status_code)
-
-        AnimechanAPI.__check_response_code(response.status_code)
-
-        return response.json()
-
     @staticmethod
-    def __check_response_code(status_code: int, msg: str = ''):
+    def _check_response_code(status_code: int, msg: str = ""):
         if status_code == 404:
             raise exceptions.NotFound()
-        elif status_code != 200:
+        if status_code != 200:
             raise exceptions.ServerError(status_code=status_code, msg=msg)

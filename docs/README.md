@@ -195,6 +195,16 @@ categories = api.get_categories(limit=10, offset=0)
 
 This method returns a list of `anime_api.apis.nekos_api.objects.Category` objects.
 
+### The `Category` class
+
+The category class represents an image category and stores it's information. It has the following properties:
+
+- `id`: (`str`) The category's ID.
+- `name`: (`str`) The category's name.
+- `description`: (`str`) A short description that says what characteristics the images that have it share.
+- `nsfw`: (`bool`) Wether the images with that category are necessarily nsfw or not.
+- `images`: (`Optional[int]`) The amount of images that the category has. This will only be set if the category is fetched by its ID.
+
 *The documentation for Nekos API is incomplete*
 
 ## Anime Facts Rest API

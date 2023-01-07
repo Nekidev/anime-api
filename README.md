@@ -67,11 +67,7 @@ These are the currently supported and planned to add support for APIs:
 | Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
 | AniBase                     | Not released                                                                        | ❌        |
-<<<<<<< HEAD
 | Nekos API                   | [Documentation](https://nekos.nekidev.com/docs/rest-api/endpoints)                  | ✅        |
-=======
-| Nekos API                   | [Documentation](https://nekos.nekidev.com/docs)                                     | ❌        |
->>>>>>> 7e61f35252454f28ba9e7fe52d1ab7defed957ad
 
 
 ### APIs by feature

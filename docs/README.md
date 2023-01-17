@@ -181,6 +181,32 @@ The `Artist` class represents an illustrator which has images in the API. It has
 - `url`: (`Optional[str]`) A link to the artist's official website/social media account.
 - `images`: (`Optional[int]`) The amount of images uploaded to the API. This property is only present when fetching the artist by ID.
 
+### `get_categories(limit: int = 10, offset: int = 0)`
+
+The `get_categories` method returns a list of all available categories. Pagination can be done with the `limit` and `offset` arguments.
+
+```python3
+from anime_api.apis import NekosAPI
+
+api = NekosAPI()
+
+categories = api.get_categories(limit=10, offset=0)
+```
+
+This method returns a list of `anime_api.apis.nekos_api.objects.Category` objects.
+
+### The `Category` class
+
+The category class represents an image category and stores it's information. It has the following properties:
+
+- `id`: (`str`) The category's ID.
+- `name`: (`str`) The category's name.
+- `description`: (`str`) A short description that says what characteristics the images that have it share.
+- `nsfw`: (`bool`) Wether the images with that category are necessarily nsfw or not.
+- `images`: (`Optional[int]`) The amount of images that the category has. This will only be set if the category is fetched by its ID.
+
+*The documentation for Nekos API is incomplete*
+
 ## Anime Facts Rest API
 
 The Anime Facts Rest API is an API written in Node.js to get anime facts. The project is mantained by [Chadan-02](https://github.com/chandan-02) and the API documentation can be found [here](https://chandan-02.github.io/anime-facts-rest-api/).

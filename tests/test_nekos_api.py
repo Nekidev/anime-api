@@ -5,11 +5,8 @@ Usage:
     cd tests
     poetry run python -m pytest nekos_api.py
 """
-import time
-
 from anime_api.apis import NekosAPI
 from anime_api.apis.nekos_api.objects import Image, Category, Character, Artist
-from anime_api.apis.nekos_api.types import NsfwLevel, ImageOrientation
 
 
 # If you have an access token, replace it here to test endpoints that require
@@ -72,6 +69,15 @@ def test_get_image_by_id():
     """
     image = api.get_image_by_id(image_id="e80cc896-a51e-4b71-bbad-e4137e15c30d")
     check_image(image)
+
+
+def test_get_artists():
+    """
+    Tests the get_artists method
+    """
+    artists = api.get_artists(limit=10, offset=0)
+    for artist in artists:
+        assert isinstance(artist, Artist), "Result contains non Artist object items"
 
 
 def test_get_artist_by_id():

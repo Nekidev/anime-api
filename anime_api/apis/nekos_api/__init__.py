@@ -139,6 +139,21 @@ class NekosAPI:
         return Image.from_json(data["data"])
 
     @prevent_ratelimit
+    def get_artists(self, limit: int = 10, offset: int = 0):
+        """
+        Returns a list of all artists.
+        """
+        response = requests.get(
+            self.endpoint + "/artist", params={"limit": limit, "offset": offset}
+        )
+
+        NekosAPI._check_response_code(response)
+
+        data = response.json()
+
+        return [Artist(**to_snake(artist)) for artist in data["data"]]
+
+    @prevent_ratelimit
     def get_artist_by_id(self, artist_id: str) -> Artist:
         """
         Returns an artist by its ID

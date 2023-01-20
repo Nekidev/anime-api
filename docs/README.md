@@ -2,7 +2,7 @@
 
 All API wrappers can be imported from `anime_api.apis`. For example, the Anime Facts Rest API's wrapper class can be imported from `anime_api.apis.anime_facts_rest_api` or directly from `anime_api.apis`.
 
-- [Nekos API](#nekos-api)
+- [Nekos API](https://nekos.nekidev.com/docs/libraries/python)
 - [Anime Facts Rest API](#anime-facts-rest-api)
 - [Trace.moe API](#tracemoe-api)
 - [Animechan API](#animechan-api)
@@ -205,7 +205,7 @@ The category class represents an image category and stores it's information. It 
 - `nsfw`: (`bool`) Wether the images with that category are necessarily nsfw or not.
 - `images`: (`Optional[int]`) The amount of images that the category has. This will only be set if the category is fetched by its ID.
 
-*The documentation for Nekos API is incomplete*
+*The full documentation for Nekos API can be found [here](https://nekos.nekidev.com/docs/libraries/python).*
 
 ## Anime Facts Rest API
 

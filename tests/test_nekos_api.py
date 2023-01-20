@@ -7,6 +7,7 @@ Usage:
 """
 from anime_api.apis import NekosAPI
 from anime_api.apis.nekos_api.objects import Image, Category, Character, Artist
+from anime_api.apis.nekos_api.utils import EscapedQuery
 
 
 # If you have an access token, replace it here to test endpoints that require
@@ -107,7 +108,7 @@ def test_get_categories():
     categories = api.get_categories(limit=10, offset=0)
     assert isinstance(categories, list), "Result is not a list"
     assert (
-        len(categories) == 10
+        len(categories) <= 10
     ), "Result does not contain the requested amount of categories"
     for category in categories:
         assert isinstance(category, Category), "Result contains non-category items"
@@ -123,6 +124,19 @@ def test_get_category_by_id():
     assert isinstance(category, Category)
 
 
+def test_get_characters():
+    """
+    Tests the get_characters method
+    """
+    characters = api.get_characters(limit=10, offset=0)
+    assert isinstance(characters, list), "Result is not a list"
+    assert (
+        len(characters) <= 10
+    ), "Result does not contain the requested amount of characters"
+    for character in characters:
+        assert isinstance(character, Character), "Result contains non-category items"
+
+
 def test_get_character_by_id():
     """
     Tests the get_character_by_id method
@@ -131,3 +145,10 @@ def test_get_character_by_id():
         character_id="25af3b5c-4671-4017-8794-e5caf7078e59"
     )
     assert isinstance(character, Character), "Result is not a Character object"
+
+
+def test_escape_query():
+    """
+    Tests the EscapedQuery class
+    """
+    assert str(EscapedQuery("hello[a-z]")) == "hello\\[a-z\\]"

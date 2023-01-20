@@ -15,6 +15,8 @@ import requests
 
 from anime_api import exceptions
 from anime_api.apis.nekos_api.objects import Image, Artist, Character, Category
+from anime_api.apis.nekos_api.types import ImageOrientation, NsfwLevel
+from anime_api.apis.nekos_api.utils import EscapedQuery
 from anime_api.utils import to_snake
 
 
@@ -139,13 +141,21 @@ class NekosAPI:
         return Image.from_json(data["data"])
 
     @prevent_ratelimit
-    def get_artists(self, limit: int = 10, offset: int = 0):
+    def get_artists(
+        self,
+        limit: int = 10,
+        offset: int = 0,
+        search: typing.Optional[typing.Union[str, EscapedQuery]] = None,
+    ):
         """
         Returns a list of all artists.
         """
-        response = requests.get(
-            self.endpoint + "/artist", params={"limit": limit, "offset": offset}
-        )
+        params = {"limit": limit, "offset": offset}
+
+        if search:
+            params.update({"search": str(search)})
+
+        response = requests.get(self.endpoint + "/artist", params=params)
 
         NekosAPI._check_response_code(response)
 
@@ -185,13 +195,21 @@ class NekosAPI:
         return [Image.from_json(image) for image in data["data"]]
 
     @prevent_ratelimit
-    def get_categories(self, limit: int = 10, offset: int = 0) -> typing.List[Category]:
+    def get_categories(
+        self,
+        limit: int = 10,
+        offset: int = 0,
+        search: typing.Optional[typing.Union[str, EscapedQuery]] = None,
+    ) -> typing.List[Category]:
         """
         Returns a list of all categories.
         """
-        response = requests.get(
-            self.endpoint + "/category", params={"limit": limit, "offset": offset}
-        )
+        params = {"limit": limit, "offset": offset}
+
+        if search:
+            params.update({"search": str(search)})
+
+        response = requests.get(self.endpoint + "/category", params=params)
 
         NekosAPI._check_response_code(response)
 
@@ -211,6 +229,29 @@ class NekosAPI:
         data = response.json()
 
         return Category(**to_snake(data["data"]))
+
+    @prevent_ratelimit
+    def get_characters(
+        self,
+        limit: int = 10,
+        offset: int = 0,
+        search: typing.Optional[typing.Union[str, EscapedQuery]] = None,
+    ) -> typing.List[Character]:
+        """
+        Returns a list of all characters.
+        """
+        params = {"limit": limit, "offset": offset}
+
+        if search:
+            params.update({"search": str(search)})
+
+        response = requests.get(self.endpoint + "/character", params=params)
+
+        NekosAPI._check_response_code(response)
+
+        data = response.json()
+
+        return [Character(**to_snake(character)) for character in data["data"]]
 
     @prevent_ratelimit
     def get_character_by_id(self, character_id: str) -> Character:
@@ -248,3 +289,15 @@ class NekosAPI:
             raise ValueError(
                 "The token is invalid. It should be 100 characters long and contain numbers and lowercase/uppercase characters."
             )
+
+
+__all__ = [
+    "NekosAPI",
+    "Image",
+    "Character",
+    "Artist",
+    "Category",
+    "ImageOrientation",
+    "NsfwLevel",
+    "EscapedQuery",
+]

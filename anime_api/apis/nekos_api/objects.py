@@ -53,6 +53,11 @@ class Character:
     description: str
     source: str
     created_at: datetime
+    gender: typing.Optional[str]
+    ages: typing.Optional[typing.List[int]]
+    birth_date: typing.Optional[str]
+    nationality: typing.Optional[str]
+    occupations: typing.Optional[typing.List[str]]
     images: typing.Optional[int] = None
 
 

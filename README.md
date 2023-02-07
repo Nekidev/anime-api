@@ -81,6 +81,8 @@ You know what you want to do, but have no idea of what API will work for you? Th
   - Thousands of anime images
   - Lots of image metadata
   - Actively developed (frequent new features, images, categories, and more)
+  - 100% open-source
+  - `v2.0.0` in its way
   - Completely free
 - Animu:
   - Tons of anime gifs and images

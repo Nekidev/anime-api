@@ -65,7 +65,7 @@ class WaifuImAPI:
                 id=image["image_id"],
                 signature=image["signature"],
                 extension=image["extension"],
-                favorites=image["favourites"],
+                favorites=image["favorites"],
                 dominant_color=image["dominant_color"],
                 source=image["source"],
                 uploaded_at=image["uploaded_at"],

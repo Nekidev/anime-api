@@ -4,25 +4,26 @@
 
 The Anime API is a collection of wrappers for different types of free anime-related APIs. [Join our Discord server](https://discord.gg/PgQnuM3YnM).
 
-
 ## Why anime-api (and not others)?
 
 There are several reasons why would you prefer using anime-api:
-- **Intuitive**: anime-api is designed to be intuitive. Supports autocompletion everywhere.
-- **Complete**: Every actively supported API has no feature left apart.
-- **Simple**: Get all the anime information you want with a single line of code.
-- **Legal**: I shouldn't need to say this, but all the APIs are legal. (no free streaming services/others)
-- **Actively supported**: Get new releases (with new API wrappers) every now and then.
 
+-   **Intuitive**: anime-api is designed to be intuitive. Supports autocompletion everywhere.
+-   **Complete**: Every actively supported API has no feature left apart.
+-   **Simple**: Get all the anime information you want with a single line of code.
+-   **Legal**: I shouldn't need to say this, but all the APIs are legal. (no free streaming services/others)
+-   **Actively supported**: Get new releases (with new API wrappers) every now and then.
 
 ## Installation
 
 Using Poetry:
+
 ```
 poetry add anime-api
 ```
 
 Using pip:
+
 ```
 pip install anime-api
 ```
@@ -31,13 +32,12 @@ pip install anime-api
 
 The full documentation can be found [here](docs/).
 
-
 ## APIs
 
 These are the currently supported and planned to add support for APIs:
 
 | Name                        | API Documentation                                                                   | Available |
-|-----------------------------|-------------------------------------------------------------------------------------|-----------|
+| --------------------------- | ----------------------------------------------------------------------------------- | --------- |
 | Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)                 | ✅        |
 | Trace.moe                   | [Documentation](https://soruly.github.io/trace.moe-api/)                            | ✅        |
 | Animechan                   | [Documentation](https://animechan.vercel.app/docs)                                  | ✅        |
@@ -48,7 +48,7 @@ These are the currently supported and planned to add support for APIs:
 | AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)                     | ❌        |
 | AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                                       | ❌        |
 | Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)                           | ✅        |
-| Animu                       | [Documentation](https://docs.animu.ml/)                                             | ✅        |
+| Animu                       | [Documentation](https://docs.animu.ml/)                                             | ✅ (down) |
 | Anisearch                   | [Documentation](https://anisearch.com/developers)                                   | ❌        |
 | Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
 | Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
@@ -64,207 +64,193 @@ These are the currently supported and planned to add support for APIs:
 | Yandere                     | [Documentation](https://yande.re/help/api)                                          | ❌        |
 | Konachan                    | [Documentation](https://konachan.com/help/api)                                      | ❌        |
 | Waifu.im                    | [Documentation](https://waifu.im/)                                                  | ✅        |
-| Catboys                     | [Documentation](https://catboys.com/api)                                            | ❌        |
+| Catboys                     | [Documentation](https://catboys.com/api)                                            | ✅        |
 | Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
-| AniBase                     | Not released                                                                        | ❌        |
-| Nekos API                   | [Documentation](https://nekos.nekidev.com/docs/rest-api/endpoints)                  | ✅        |
-
+| Nekos API                   | [Documentation](https://v1.nekosapi.com/docs/rest-api/endpoints)                    | ✅        |
 
 ### APIs by feature
 
 You know what you want to do, but have no idea of what API will work for you? This list orders the APIs by features. See which fits you best!
 
-
 #### Images
 
-- Nekos API:
-  - Thousands of anime images
-  - Lots of image metadata
-  - Actively developed (frequent new features, images, categories, and more)
-  - 100% open-source
-  - `v2.0.0` in its way
-  - Official Python wrapper (this!)
-  - Completely free
-- Animu:
-  - Tons of anime gifs and images
-  - Get reaction gifs from +60 different categories
-  - Completely free
-- Hmtai:
-  - Tons of anime gifs and images
-  - SFW and NSFW images
-  - Get random images from +70 different categories
-  - Completely free
-- Nekos.life
-  - Lots of different neko pics
-  - Get random neko images from +20 different categories
-  - Completely free
-- Waifu.pics
-  - Lots of different waifu images
-  - Get random images from +30 categories
-  - SFW and NSFW images
-  - Get 30 different images with a single API call
-  - Get a different image every time
-  - Completely free
-- NekoBot
-  - Lots of different neko images
-  - Image generation (memes, ships, etc.)
-  - Get random images from 30 different categories
-  - SFW and NSFW images
-  - Completely free
-- Nekos.moe
-  - Lots of different neko images
-  - Advanced image search
-  - Upload images
-  - Like and favorite images
-  - SFW and NSFW images
-  - Get any amount of random images
-  - Completely free
-- Nekos.best
-  - Lots of different neko images
-  - Get random images from +35 different categories
-  - Get many random images with a single API call
-  - Search for images by category, format and more
-  - Fully SFW
-  - 99.9% uptime
-  - Fast response times
-  - Get all image's source
-  - Completely free
-
+-   Nekos API:
+    -   Thousands of anime images
+    -   Lots of image metadata
+    -   Actively developed (frequent new features, images, categories, and more)
+    -   100% open-source
+    -   `v2.0.0` in its way
+    -   Official Python wrapper (this!)
+    -   Completely free
+-   Animu:
+    -   Tons of anime gifs and images
+    -   Get reaction gifs from +60 different categories
+    -   Completely free
+-   Hmtai:
+    -   Tons of anime gifs and images
+    -   SFW and NSFW images
+    -   Get random images from +70 different categories
+    -   Completely free
+-   Nekos.life
+    -   Lots of different neko pics
+    -   Get random neko images from +20 different categories
+    -   Completely free
+-   Waifu.pics
+    -   Lots of different waifu images
+    -   Get random images from +30 categories
+    -   SFW and NSFW images
+    -   Get 30 different images with a single API call
+    -   Get a different image every time
+    -   Completely free
+-   NekoBot
+    -   Lots of different neko images
+    -   Image generation (memes, ships, etc.)
+    -   Get random images from 30 different categories
+    -   SFW and NSFW images
+    -   Completely free
+-   Nekos.moe
+    -   Lots of different neko images
+    -   Advanced image search
+    -   Upload images
+    -   Like and favorite images
+    -   SFW and NSFW images
+    -   Get any amount of random images
+    -   Completely free
+-   Nekos.best
+    -   Lots of different neko images
+    -   Get random images from +35 different categories
+    -   Get many random images with a single API call
+    -   Search for images by category, format and more
+    -   Fully SFW
+    -   99.9% uptime
+    -   Fast response times
+    -   Get all image's source
+    -   Completely free
 
 #### Facts
 
-- Anime Facts Rest API:
-  - Lots of different anime facts
-  - Get random fact from an anime
-  - Save fact ID and refetch the fact later
-  - Get a list of all available animes
-  - Completely free
-- Animu:
-  - Lots of anime facts
-  - Get random anime facts
-  - Completely free
-- Kyoko:
-  - Lots of different anime facts
-  - Get random reaction gifs from 3 different categories
-  - Completely free
-- Nekos.life
-  - Lots of different anime facts
-  - Get random anime facts
-  - Completely free
-
+-   Anime Facts Rest API:
+    -   Lots of different anime facts
+    -   Get random fact from an anime
+    -   Save fact ID and refetch the fact later
+    -   Get a list of all available animes
+    -   Completely free
+-   Animu:
+    -   Lots of anime facts
+    -   Get random anime facts
+    -   Completely free
+-   Kyoko:
+    -   Lots of different anime facts
+    -   Get random reaction gifs from 3 different categories
+    -   Completely free
+-   Nekos.life
+    -   Lots of different anime facts
+    -   Get random anime facts
+    -   Completely free
 
 #### Quotes
 
-- Animechan:
-  - Lots of different quotes from a large list of characters and animes
-  - Get random anime quotes
-  - Get 10 random anime quotes with a single api call
-  - Search quotes by character name or anime title
-  - Get a list of all available animes
-  - Completely free
-- Animu:
-  - Lots of different anime quotes with information about who said them and where
-  - Get random anime quotes
-  - Completely free.
-- Kyoko:
-  - Lots of different anime quotes
-  - Get random quotes with information about who said them and where
-  - Completely free
-
+-   Animechan:
+    -   Lots of different quotes from a large list of characters and animes
+    -   Get random anime quotes
+    -   Get 10 random anime quotes with a single api call
+    -   Search quotes by character name or anime title
+    -   Get a list of all available animes
+    -   Completely free
+-   Animu:
+    -   Lots of different anime quotes with information about who said them and where
+    -   Get random anime quotes
+    -   Completely free.
+-   Kyoko:
+    -   Lots of different anime quotes
+    -   Get random quotes with information about who said them and where
+    -   Completely free
 
 #### Waifus
 
-- Animu:
-  - Lots of different waifus from Video Games, Animes, Movies and more.
-  - Get random waifus with their statistics, source, many images and more.
-  - Completely free
-
+-   Animu:
+    -   Lots of different waifus from Video Games, Animes, Movies and more.
+    -   Get random waifus with their statistics, source, many images and more.
+    -   Completely free
 
 #### Animes
 
-- Anime Facts Rest API:
-  - Get a list of lots of snake-case anime titles with their images and facts about them
-  - Completely free
-- Animechan:
-  - Get a list of lots of anime titles with random quotes from them
-  - Completely free
-- Studio Ghibli API
-  - Get Studio Ghibli animes with information such as director, producer, etc.
-  - Dynamic loading support
-  - Get super specific anime details such as veichles, locations, people, and species.
-  - Completely free
-
+-   Anime Facts Rest API:
+    -   Get a list of lots of snake-case anime titles with their images and facts about them
+    -   Completely free
+-   Animechan:
+    -   Get a list of lots of anime titles with random quotes from them
+    -   Completely free
+-   Studio Ghibli API
+    -   Get Studio Ghibli animes with information such as director, producer, etc.
+    -   Dynamic loading support
+    -   Get super specific anime details such as veichles, locations, people, and species.
+    -   Completely free
 
 #### Entertainment
 
-- Nekos.life
-  - Get an answer from an 8ball with an aditional image of an 8ball showing the answer.
-  - Get a random "why?" question
-  - Completely free
-
+-   Nekos.life
+    -   Get an answer from an 8ball with an aditional image of an 8ball showing the answer.
+    -   Get a random "why?" question
+    -   Completely free
 
 #### Utilities
 
-- Trace.moe
-  - Find an anime from a screenshot with information about the specific anime, episode and time of the screenshot.
-  - Completely free
-- Nekos.life
-  - Get a random cat text emoji
-  - Generate random names
-  - Owoify text (`hello` => `hewwo`)
-  - Mark text as spoiler (`hello` => `||hello||`) (API endpoint is currently bugged)
-  - Completely free
-- Animu:
-  - Generate a secure password
-  - Completely free
-
+-   Trace.moe
+    -   Find an anime from a screenshot with information about the specific anime, episode and time of the screenshot.
+    -   Completely free
+-   Nekos.life
+    -   Get a random cat text emoji
+    -   Generate random names
+    -   Owoify text (`hello` => `hewwo`)
+    -   Mark text as spoiler (`hello` => `||hello||`) (API endpoint is currently bugged)
+    -   Completely free
+-   Animu:
+    -   Generate a secure password
+    -   Completely free
 
 ### APIs that will not be supported
-- Illegal anime streaming services
-- Non anime-related APIs
-- APIs that are not APIs (i.e. web scrapping)
 
+-   Illegal anime streaming services
+-   Non anime-related APIs
+-   APIs that are not APIs (i.e. web scrapping)
 
 ## Contributing
 
 Read the following before contributing:
 
-
 ### Adding an API
 
 If you want to add an API to the list, please make sure that:
 
-- The API is free to use
-- The API is anime-related (or manga-related)
-- You follow the same architecture as the other API wrappers
-- Document the code you write
-- Add all the necessary tests to the `tests` folder
-
+-   The API is free to use
+-   The API is anime-related (or manga-related)
+-   You follow the same architecture as the other API wrappers
+-   Document the code you write
+-   Add all the necessary tests to the `tests` folder
 
 ### Fixing an API wrapper
 
 Before fixing an API wrapper, please make sure that:
 
-- The bug is not being fixed in another PR
-- The bug is actually a bug and not a feature (xd)
-- The bug is not a bug from the API itself
-- You have created an issue. If you have not created an issue, please create one before fixing the bug.
-
+-   The bug is not being fixed in another PR
+-   The bug is actually a bug and not a feature (xd)
+-   The bug is not a bug from the API itself
+-   You have created an issue. If you have not created an issue, please create one before fixing the bug.
 
 ### Requesting a new API
 
 If you want to request a new API, please make sure that:
 
-- The API is free to use
-- The API is anime-related (or manga-related)
-- It is not already in the list (wether available or not)
+-   The API is free to use
+-   The API is anime-related (or manga-related)
+-   It is not already in the list (wether available or not)
 
 Once you have checked this, please create an issue with the following information:
 
-- The name of the API
-- The API docs link
-- List of all the features the API has
-
+-   The name of the API
+-   The API docs link
+-   List of all the features the API has
 
 ## Mantainers
 

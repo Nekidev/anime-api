@@ -52,10 +52,10 @@ def prevent_ratelimit(func):
 
 class NekosAPI:
     """
-    Docs: https://nekos.nekidev.com/docs/rest-api/endpoints
+    Docs: https://v1.nekosapi.com/docs/rest-api/endpoints
     """
 
-    endpoint: str = "https://nekos.nekidev.com/api"
+    endpoint: str = "https://api.nekosapi.com/v1"
     token: typing.Optional[str] = None
 
     def __init__(

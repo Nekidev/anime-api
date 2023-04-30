@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "anime-api"
-version = "0.15.4"
+version = "1.0.0"
 description = "A collection of wrappers for anime-related APIs"
 authors = ["Neki <84998222+Nekidev@users.noreply.github.com>"]
 readme = "README.md"

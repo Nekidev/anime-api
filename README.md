@@ -48,7 +48,7 @@ These are the currently supported and planned to add support for APIs:
 | AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)                     | ❌        |
 | AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                                       | ❌        |
 | Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)                           | ✅        |
-| Animu                       | [Documentation](https://docs.animu.ml/)                                             | ✅ (down) |
+| Animu                       | [Documentation](https://docs.waifu.it/)                                             | ✅        |
 | Anisearch                   | [Documentation](https://anisearch.com/developers)                                   | ❌        |
 | Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
 | Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |

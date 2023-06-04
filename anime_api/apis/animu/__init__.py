@@ -1,6 +1,6 @@
 """
 Base module for the animu API. Documentation for the api can be found at
-https://docs.animu.ml
+https://docs.waifu.it
 """
 import typing
 import requests
@@ -21,10 +21,10 @@ from anime_api.apis.animu.operators import AND, OR
 
 class AnimuAPI:
     """
-    Docs: https://docs.animu.ml
+    Docs: https://docs.waifu.it
     """
 
-    endpoint = "https://animu.ml/api"
+    endpoint = "https://waifu.it/api"
     api_token: str
 
     def __init__(self, api_token: str):

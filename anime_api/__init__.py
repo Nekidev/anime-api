@@ -35,7 +35,7 @@ api_list = [
         False,
     ),
     ("Notify.moe", None, "https://notify.moe/api", False),
-    ("Hmtai", apis.HmtaiAPI, "https://hmtai.herokuapp.com/endpoints", True),
+    ("Hmtai", apis.HmtaiAPI, "https://hmtai.hatsunia.cfd/endpoints", True),
     ("Nekos.life", None, "https://github.com/Nekos-life/nekos.py", False),
     ("NekoBot", apis.NekoBotAPI, "https://docs.nekobot.xyz/", True),
     ("Neko-love", apis.NekoLoveAPI, "https://docs.neko-love.xyz/", True),
@@ -67,6 +67,6 @@ api_list = [
     ),
 ]
 
-__version__ = '0.15.0'
+__version__ = '1.0.1'
 __authors__ = ['Nekidev <neki@nekidev.com>']
 __license__ = "MIT License"

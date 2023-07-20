@@ -11,10 +11,10 @@ from anime_api.apis.hmtai.objects import Image
 
 class HmtaiAPI:
     """
-    Endpoints: https://hmtai.herokuapp.com/v2/endpoints
+    Endpoints: https://hmtai.hatsunia.cfd/v2/endpoints
     """
 
-    endpoint = "https://hmtai.herokuapp.com/v2"
+    endpoint = "https://hmtai.hatsunia.cfd/v2"
 
     def get_random_image(
         self, category: typing.Union[ImageCategory.SFW, ImageCategory.NSFW]

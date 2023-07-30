@@ -1,6 +1,6 @@
 """
 Base module for the Animechan API. The documentation is available at
-https://animechan.vercel.app/docs
+https://animechan.xyz/docs
 """
 from urllib.parse import quote_plus
 
@@ -13,10 +13,10 @@ from anime_api.apis.animechan.objects import Quote
 
 class AnimechanAPI:
     """
-    Docs: https://animechan.vercel.app/docs
+    Docs: https://animechan.xyz/docs
     """
 
-    endpoint = "https://animechan.vercel.app/api"
+    endpoint = "https://animechan.xyz/api"
 
     def __init__(self, endpoint: typing.Optional[str] = None):
         self.endpoint = endpoint or self.endpoint

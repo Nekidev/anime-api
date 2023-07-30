@@ -3,7 +3,7 @@ Run tests for the AnimechanAPI class.
 
 Usage:
     cd tests
-    poetry run python -m pytest animechan.py
+    poetry run python -m pytest test_animechan.py
 """
 from anime_api.apis.animechan import AnimechanAPI
 from anime_api.apis.animechan.objects import Quote

@@ -352,7 +352,7 @@ If the `get_anime_info` was set to `False` when calling the `search()` method, a
 
 ## Animechan API
 
-The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.vercel.app/).
+The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.xyz/).
 
 The Animechan API wrapper can be imported from the `anime_api.apis` module.
 

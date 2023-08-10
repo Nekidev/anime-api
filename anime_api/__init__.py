@@ -18,7 +18,7 @@ api_list = [
         "https://soruly.github.io/trace.moe-api/",
         True,
     ),
-    ("Animechan", apis.AnimechanAPI, "https://animechan.vercel.app/docs", True),
+    ("Animechan", apis.AnimechanAPI, "https://animechan.xyz/docs", True),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),
     ("Waifu Pics", apis.WaifuPicsAPI, "https://waifu.pics/docs", True),
     ("Studio Ghibli API", apis.StudioGhibliAPI, "https://ghibliapi.herokuapp.com/", True),

@@ -40,7 +40,7 @@ These are the currently supported and planned to add support for APIs:
 | --------------------------- | ----------------------------------------------------------------------------------- | --------- |
 | Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)                 | ✅        |
 | Trace.moe                   | [Documentation](https://soruly.github.io/trace.moe-api/)                            | ✅        |
-| Animechan                   | [Documentation](https://animechan.vercel.app/docs)                                  | ✅        |
+| Animechan                   | [Documentation](https://animechan.xyz/docs)                                         | ✅        |
 | Jikan (MyAnimeList)         | [Documentation](https://jikan.docs.apiary.io/)                                      | ❌        |
 | Waifu Pics                  | [Documentation](https://waifu.pics/docs)                                            | ✅        |
 | Studio Ghibli API           | [Documentation](https://ghibliapi.herokuapp.com/)                                   | ✅        |

@@ -1,5 +1,7 @@
 # The Anime API Project
 
+[![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/G2G6I3GT1) [![Coinbase](https://img.shields.io/badge/Coinbase-0052FF?style=for-the-badge&logo=Coinbase&logoColor=white)](https://nyekipy.cb.id)
+
 ![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
 
 The Anime API is a collection of wrappers for different types of free anime-related APIs. [Join our Discord server](https://discord.gg/PgQnuM3YnM).

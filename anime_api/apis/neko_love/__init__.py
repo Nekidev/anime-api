@@ -9,7 +9,7 @@ import requests
 
 from anime_api import exceptions
 from anime_api.apis.neko_love.types import ImageCategory
-from anime_api.apis.neko_love.obejcts import Image
+from anime_api.apis.neko_love.objects import Image
 
 
 class NekoLoveAPI:

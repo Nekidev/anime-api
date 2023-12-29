@@ -14,7 +14,10 @@ class StudioGhibliAPI:
     Base class for the Studio Ghibli API
     """
 
-    endpoint = "https://ghibliapi.herokuapp.com"
+    endpoint = "https://ghibliapi.dev"
+
+    def __init__(self, endpoint: typing.Optional[str] = None) -> None:
+        self.endpoint = endpoint or self.endpoint
 
     def get_animes(self, limit: int = 50) -> typing.List[Anime]:
         """

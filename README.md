@@ -32,7 +32,7 @@ pip install anime-api
 
 ## Documentation
 
-The full documentation can be found [here](docs/).
+The full documentation can be found [here](https://github.com/Nekidev/anime-api/tree/main/docs).
 
 ## APIs
 

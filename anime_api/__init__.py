@@ -21,7 +21,7 @@ api_list = [
     ("Animechan", apis.AnimechanAPI, "https://animechan.xyz/docs", True),
     ("Jikan", None, "https://jikan.docs.apiary.io/#", False),
     ("Waifu Pics", apis.WaifuPicsAPI, "https://waifu.pics/docs", True),
-    ("Studio Ghibli API", apis.StudioGhibliAPI, "https://ghibliapi.herokuapp.com/", True),
+    ("Studio Ghibli API", apis.StudioGhibliAPI, "https://ghibliapi.dev/", True),
     ("Kitsu", None, "https://kitsu.docs.apiary.io/#", False),
     ("AniList", None, "https://anilist.gitbook.io/anilist-apiv2-docs/", False),
     ("AniDB", None, "https://wiki.anidb.net/w/API", False),
@@ -67,6 +67,6 @@ api_list = [
     ),
 ]
 
-__version__ = '1.0.1'
-__authors__ = ['Nekidev <neki@nekidev.com>']
+__version__ = '1.0.2'
+__authors__ = ['Nekidev <nyeki@nyeki.dev>']
 __license__ = "MIT License"

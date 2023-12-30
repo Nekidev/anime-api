@@ -1,10 +1,28 @@
 [tool.poetry]
 name = "anime-api"
-version = "1.0.1"
+version = "1.0.2"
 description = "A collection of wrappers for anime-related APIs"
-authors = ["Neki <84998222+Nekidev@users.noreply.github.com>"]
+authors = ["Neki <nyeki@nyeki.dev>"]
+maintainers = ["Neki <nyeki@nyeki.dev>"]
 readme = "README.md"
 packages = [{include = "anime_api"}]
+license = "MIT"
+homepage = "https://github.com/Nekidev/anime-api"
+repository = "https://github.com/Nekidev/anime-api"
+documentation = "https://github.com/Nekidev/anime-api/tree/main/docs"
+keywords = ["anime", "anime api", "api", "manga", "manga api", "catgirl", "anime images", "anime pictures"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+]
+exclude = [
+    "dist/",
+    "docs/",
+]
+
+
 
 [tool.poetry.dependencies]
 python = ">=3.7,<4"

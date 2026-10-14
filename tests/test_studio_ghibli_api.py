@@ -46,7 +46,7 @@ def test_dynamic_anime_loading():
     Test the dynamic loading of an anime
     """
     anime = Anime(
-        _url="https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+        _url="https://ghibliapi.dev/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
     )
     assert not anime.is_loaded
     assert anime.load()
@@ -94,7 +94,7 @@ def test_dynamic_person_loading():
     Test the dynamic loading of a person
     """
     person = Person(
-        _url="https://ghibliapi.herokuapp.com/people/ba924631-068e-4436-b6de-f3283fa848f0"
+        _url="https://ghibliapi.dev/people/ba924631-068e-4436-b6de-f3283fa848f0"
     )
     assert not person.is_loaded
     assert person.load()
@@ -138,7 +138,7 @@ def test_dynamic_location_loading():
     Test the dynamic loading of a location
     """
     location = Location(
-        _url="https://ghibliapi.herokuapp.com/locations/11014596-71b0-4b3e-b8c0-1c4b15f28b9a"
+        _url="https://ghibliapi.dev/locations/11014596-71b0-4b3e-b8c0-1c4b15f28b9a"
     )
     assert not location.is_loaded
     assert location.load()
@@ -183,7 +183,7 @@ def test_dynamic_species_loading():
     Test the dynamic loading of a species
     """
     species = Species(
-        _url="https://ghibliapi.herokuapp.com/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2"
+        _url="https://ghibliapi.dev/species/af3910a6-429f-4c74-9ad5-dfe1c4aa04f2"
     )
     assert not species.is_loaded
     assert species.load()
@@ -227,7 +227,7 @@ def test_dynamic_vehicle_loading():
     Test the dynamic loading of a vehicle
     """
     vehicle = Vehicle(
-        _url="https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+        _url="https://ghibliapi.dev/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
     )
     assert not vehicle.is_loaded
     assert vehicle.load()

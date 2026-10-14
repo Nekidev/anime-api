@@ -4,6 +4,7 @@ All API wrapper classes can be imported from here.
 from .trace_moe import TraceMoeAPI
 from .anime_facts_rest_api import AnimeFactsRestAPI
 from .animechan import AnimechanAPI
+from .animechan_v1 import AnimechanV1API
 from .waifu_pics import WaifuPicsAPI
 from .studio_ghibli_api import StudioGhibliAPI
 from .kyoko import KyokoAPI

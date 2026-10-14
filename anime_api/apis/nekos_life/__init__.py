@@ -1,6 +1,6 @@
 """
 Base module for the Nekos.Life API. Documentation can be found at
-https://api.nekos.dev/api/v2/endpoints
+https://github.com/Nekos-life/nekos.py
 """
 import requests
 

@@ -1,6 +1,6 @@
 """
 Base module for the Animechan API. The documentation is available at
-https://animechan.xyz/docs
+https://animechan.io/docs
 """
 from urllib.parse import quote_plus
 
@@ -13,7 +13,8 @@ from anime_api.apis.animechan.objects import Quote
 
 class AnimechanAPI:
     """
-    Docs: https://animechan.xyz/docs
+    Legacy client for a retired API contract. The default domain is parked.
+    Use AnimechanV1API for the current service: https://animechan.io/docs
     """
 
     endpoint = "https://animechan.xyz/api"

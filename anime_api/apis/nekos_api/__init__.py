@@ -1,7 +1,7 @@
 # pylint: disable=expression-not-assigned, missing-timeout
 """
 Base module for Nekos API. Documentation can be found at
-https://nekos.nekidev.com/docs/rest-api/endpoints
+https://github.com/Nekos-API/Nekos-API
 """
 from urllib.parse import quote
 from datetime import datetime
@@ -52,7 +52,7 @@ def prevent_ratelimit(func):
 
 class NekosAPI:
     """
-    Docs: https://v1.nekosapi.com/docs/rest-api/endpoints
+    Docs: https://github.com/Nekos-API/Nekos-API
     """
 
     endpoint: str = "https://api.nekosapi.com/v1"

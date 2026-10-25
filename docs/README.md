@@ -1,8 +1,13 @@
 # The Anime API Project
 
+> Provider availability changed since these legacy examples were written. Read
+> [provider status](provider-status.md) before running them. Anime Facts, Kyoko,
+> legacy Animechan and Nekos API v1 are removed from the active directory; their
+> classes remain importable for compatibility. Use `AnimechanV1API` for current quotes.
+
 All API wrappers can be imported from `anime_api.apis`. For example, the Anime Facts Rest API's wrapper class can be imported from `anime_api.apis.anime_facts_rest_api` or directly from `anime_api.apis`.
 
-- [Nekos API](https://nekos.nekidev.com/docs/libraries/python)
+- [Nekos API](#nekos-api)
 - [Anime Facts Rest API](#anime-facts-rest-api)
 - [Trace.moe API](#tracemoe-api)
 - [Animechan API](#animechan-api)
@@ -39,11 +44,11 @@ A list of all planned or available API wrappers can be imported from `anime_api`
 from anime_api import api_list
 ```
 
-The list contains a `tuple` with 4 items for each API. For each `api` in the list, `api[0]` is the API name, `api[1]` is the wrapper class (or `None` if not available), `api[2]` is the documentation URL, and `api[3]` is a boolean that will be true or false depending of the availability of the API (`True` if available, otherwise `False`).
+The list contains a `tuple` with 4 items for each API. For each `api` in the list, `api[0]` is the API name, `api[1]` is the wrapper class (or `None` if not available), `api[2]` is the documentation URL, and `api[3]` is a boolean that will be true or false depending of the inclusion of a wrapper (`True` if included, otherwise `False`). This is not a service health guarantee.
 
 ## Nekos API
 
-Nekos API is an actively developed free open-source anime images API that serves anime images. The project is mantained by [Nekidev](https://github.com/Nekidev) and the source code can be found in it's [GitHub repository](https://github.com/Nekidev/nekos-api). You can [join the Discord server](https://discord.gg/PgQnuM3YnM) for more info, support and more.
+This section describes the retired Nekos API v1 contract, which is incompatible with current versions. The project is mantained by [Nekidev](https://github.com/Nekidev) and the source code can be found in it's [GitHub repository](https://github.com/Nekidev/nekos-api). You can [join the Discord server](https://discord.gg/PgQnuM3YnM) for more info, support and more.
 
 The Nekos API wrapper is in the `anime_api.apis` module.
 
@@ -205,7 +210,7 @@ The category class represents an image category and stores it's information. It 
 - `nsfw`: (`bool`) Wether the images with that category are necessarily nsfw or not.
 - `images`: (`Optional[int]`) The amount of images that the category has. This will only be set if the category is fetched by its ID.
 
-*The full documentation for Nekos API can be found [here](https://nekos.nekidev.com/docs/libraries/python).*
+*For the current upstream, see [Nekos API source](https://github.com/Nekos-API/Nekos-API); this legacy wrapper does not implement its current contract.*
 
 ## Anime Facts Rest API
 
@@ -277,7 +282,7 @@ fact = api.get_fact(anime_name="fma_brotherhood", fact_id=1)
 
 ## Trace.moe API
 
-The Trace.moe API is an API to search for anime scenes from screenshots. The API documentation can be found [here](https://soruly.github.io/trace.moe/#/).
+The Trace.moe API is an API to search for anime scenes from screenshots. The API documentation can be found [here](https://soruly.github.io/trace.moe-api/).
 
 The Trace.moe API wrapper can be imported from the `anime_api.apis` module.
 
@@ -352,7 +357,10 @@ If the `get_anime_info` was set to `False` when calling the `search()` method, a
 
 ## Animechan API
 
-The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.xyz/).
+> Legacy contract: the configured domain is parked. Use `AnimechanV1API` as shown
+> in the root README. The old examples below are retained for migration reference.
+
+The Animechan API is an API to get anime quotes. The API documentation can be found [here](https://animechan.io/docs).
 
 The Animechan API wrapper can be imported from the `anime_api.apis` module.
 
@@ -539,7 +547,7 @@ images_list = images1 + images2
 
 ## Studio Ghibli API
 
-The Studio Ghibli API is an API to get information about Studio Ghibli movies. The API documentation can be found [here](https://ghibliapi.herokuapp.com/).
+The Studio Ghibli API is an API to get information about Studio Ghibli movies. The API documentation can be found [here](https://ghibliapi.dev/).
 
 The Studio Ghibli API wrapper can be imported from the `anime_api.apis` module.
 

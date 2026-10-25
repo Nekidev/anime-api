@@ -1,5 +1,5 @@
 """
-Base module for the Hmtai API. Endpoints can be found at https://hmtai.herokuapp.com/v2/endpoints
+Base module for the Hmtai API. Endpoints can be found at https://hmtai.hatsunia.cfd/v2/endpoints
 """
 import typing
 import requests

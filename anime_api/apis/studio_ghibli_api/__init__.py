@@ -1,6 +1,6 @@
 """
 Base module for Studio Ghibli API. Documentation can be found at
-https://ghibliapi.herokuapp.com/
+https://ghibliapi.dev/
 """
 import typing
 import requests

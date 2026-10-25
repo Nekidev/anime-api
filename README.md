@@ -2,8 +2,6 @@
 
 [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/G2G6I3GT1) [![Coinbase](https://img.shields.io/badge/Coinbase-0052FF?style=for-the-badge&logo=Coinbase&logoColor=white)](https://nyekipy.cb.id)
 
-![Loli count](https://count.getloli.com/get/@anime-api?theme=gelbooru)
-
 The Anime API is a collection of wrappers for different types of free anime-related APIs. [Join our Discord server](https://discord.gg/PgQnuM3YnM).
 
 ## Why anime-api (and not others)?
@@ -11,10 +9,10 @@ The Anime API is a collection of wrappers for different types of free anime-rela
 There are several reasons why would you prefer using anime-api:
 
 -   **Intuitive**: anime-api is designed to be intuitive. Supports autocompletion everywhere.
--   **Complete**: Every actively supported API has no feature left apart.
+-   **Typed**: Wrappers expose Python objects for provider responses.
 -   **Simple**: Get all the anime information you want with a single line of code.
 -   **Legal**: I shouldn't need to say this, but all the APIs are legal. (no free streaming services/others)
--   **Actively supported**: Get new releases (with new API wrappers) every now and then.
+-   **Provider status**: See the dated audit below before choosing a wrapper.
 
 ## Installation
 
@@ -34,188 +32,83 @@ pip install anime-api
 
 The full documentation can be found [here](https://github.com/Nekidev/anime-api/tree/main/docs).
 
-## APIs
+## Provider directory
 
-These are the currently supported and planned to add support for APIs:
+Links were checked on **October 14, 2026**. A reachable documentation page does
+not establish API uptime or wrapper compatibility. `api_list` lists included
+wrappers, not a live health check. See [provider status and migrations](docs/provider-status.md)
+for retired services, uncertain results, and replacement choices.
 
-| Name                        | API Documentation                                                                   | Available |
-| --------------------------- | ----------------------------------------------------------------------------------- | --------- |
-| Anime Facts Rest API        | [Documentation](https://chandan-02.github.io/anime-facts-rest-api/)                 | ✅        |
-| Trace.moe                   | [Documentation](https://soruly.github.io/trace.moe-api/)                            | ✅        |
-| Animechan                   | [Documentation](https://animechan.xyz/docs)                                         | ✅        |
-| Jikan (MyAnimeList)         | [Documentation](https://jikan.docs.apiary.io/)                                      | ❌        |
-| Waifu Pics                  | [Documentation](https://waifu.pics/docs)                                            | ✅        |
-| Studio Ghibli API           | [Documentation](https://ghibliapi.herokuapp.com/)                                   | ✅        |
-| Kitsu                       | [Documentation](https://kitsu.docs.apiary.io/)                                      | ❌        |
-| AniList                     | [Documentation](https://anilist.gitbook.io/anilist-apiv2-docs/)                     | ❌        |
-| AniDB                       | [Documentation](https://wiki.anidb.net/w/API)                                       | ❌        |
-| Kyoko                       | [Documentation](https://github.com/Elliottophellia/kyoko)                           | ✅        |
-| Animu                       | [Documentation](https://docs.waifu.it/)                                             | ✅        |
-| Anisearch                   | [Documentation](https://anisearch.com/developers)                                   | ❌        |
-| Anime News Network          | [Documentation](https://www.animenewsnetwork.com/encyclopedia/api.php)              | ❌        |
-| Notify.moe (Anime Notifier) | [Documentation](https://notify.moe/api)                                             | ❌        |
-| Hmtai                       | [Documentation](https://hmtai.hatsunia.cfd/v2/endpoints)                            | ✅        |
-| Nekos.life                  | [Documentation](https://github.com/Nekos-life/nekos.py)                             | ✅        |
-| NekoBot                     | [Documentation](https://docs.nekobot.xyz/)                                          | ✅        |
-| Neko-Love                   | [Documentation](https://docs.neko-love.xyz/)                                        | ✅        |
-| Nekos.best                  | [Documentation](https://docs.nekos.best/)                                           | ✅        |
-| Nekos.moe                   | [Documentation](https://docs.nekos.moe/)                                            | ✅        |
-| Shikimori                   | [Documentation](https://shikimori.one/api/doc)                                      | ❌        |
-| MangaDex                    | [Documentation](https://api.mangadex.org/docs.html)                                 | ❌        |
-| Danbooru                    | [Documentation](https://danbooru.donmai.us/wiki_pages/help:api)                     | ❌        |
-| Yandere                     | [Documentation](https://yande.re/help/api)                                          | ❌        |
-| Konachan                    | [Documentation](https://konachan.com/help/api)                                      | ❌        |
-| Waifu.im                    | [Documentation](https://waifu.im/)                                                  | ✅        |
-| Catboys                     | [Documentation](https://catboys.com/api)                                            | ✅        |
-| Anime Character Database    | [Documentation](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | ❌        |
-| Nekos API                   | [Documentation](https://v1.nekosapi.com/docs/rest-api/endpoints)                    | ✅        |
+| Provider | Documentation | Wrapper / status |
+| --- | --- | --- |
+| Animechan v1 | [Docs](https://animechan.io/docs) | `AnimechanV1API`: random quotes and filters; live JSON verified |
+| Trace.moe | [Docs](https://soruly.github.io/trace.moe-api/) | `TraceMoeAPI`; docs reachable |
+| Waifu.pics | [Docs](https://waifu.pics/docs) | `WaifuPicsAPI`; docs reachable |
+| Studio Ghibli | [Docs](https://ghibliapi.dev/) | `StudioGhibliAPI`; moved from Heroku |
+| Nekos.best | [Docs](https://docs.nekos.best/) | `NekosBest`; docs reachable |
+| Nekos.moe | [Docs](https://docs.nekos.moe/) | `NekosMoeAPI`; docs reachable |
+| Nekos.life | [Source / docs](https://github.com/Nekos-life/nekos.py) | `NekosLifeAPI`; source reachable |
+| NekoBot | [Docs](https://docs.nekobot.xyz/) | `NekoBotAPI`; docs reachable |
+| Waifu.im | [Docs](https://docs.waifu.im/) | `WaifuImAPI`; current contract needs review |
+| Animu / Waifu.it | See provider status | `AnimuAPI`; host unverified |
+| Hmtai | See provider status | `HmtaiAPI`; host unverified |
+| Neko-Love | See provider status | `NekoLoveAPI`; host unverified |
+| Kitsu | [Docs](https://kitsu.docs.apiary.io/) | No wrapper |
+| AniList | [Docs](https://anilist.gitbook.io/anilist-apiv2-docs/) | No wrapper |
+| AniDB | See provider status | No wrapper; docs access blocked |
+| Anime News Network | [Docs](https://www.animenewsnetwork.com/encyclopedia/api.php) | No wrapper |
+| Notify.moe | [Docs](https://notify.moe/api) | No wrapper |
+| Shikimori | [Docs](https://shikimori.one/api/doc) | No wrapper |
+| MangaDex | [Docs](https://api.mangadex.org/docs/) | No wrapper; corrected docs URL |
+| Danbooru | [Docs](https://danbooru.donmai.us/wiki_pages/help:api) | No wrapper |
+| Yandere | [Docs](https://yande.re/help/api) | No wrapper |
+| Konachan | [Docs](https://konachan.com/help/api) | No wrapper |
+| Anime Character Database | [Docs](http://wiki.animecharactersdatabase.com/index.php?title=API_Access) | No wrapper |
+| Jikan | [Source](https://github.com/jikan-me/jikan-rest) | Self-hosted only; public service discontinued |
+| Jikan-Edge (new alternative) | [Docs](https://jikan.lucashdo.com/) | External API; sample JSON verified; no wrapper; different response schema |
+| Tenrai (new alternative) | [Docs](https://tenrai.org/) | Docs reachable; sample API request failed; no wrapper |
 
-### APIs by feature
+### Current quote client
 
-You know what you want to do, but have no idea of what API will work for you? This list orders the APIs by features. See which fits you best!
+Install this checkout with `python -m pip install -e .` to use the new client.
+The published PyPI release does not include this maintenance change yet.
 
-#### Images
+```python
+from anime_api.apis import AnimechanV1API
 
--   Nekos API:
-    -   Thousands of anime images
-    -   Lots of image metadata
-    -   Actively developed (frequent new features, images, categories, and more)
-    -   100% open-source
-    -   `v2.0.0` in its way
-    -   Official Python wrapper (this!)
-    -   Completely free
--   Animu:
-    -   Tons of anime gifs and images
-    -   Get reaction gifs from +60 different categories
-    -   Completely free
--   Hmtai:
-    -   Tons of anime gifs and images
-    -   SFW and NSFW images
-    -   Get random images from +70 different categories
-    -   Completely free
--   Nekos.life
-    -   Lots of different neko pics
-    -   Get random neko images from +20 different categories
-    -   Completely free
--   Waifu.pics
-    -   Lots of different waifu images
-    -   Get random images from +30 categories
-    -   SFW and NSFW images
-    -   Get 30 different images with a single API call
-    -   Get a different image every time
-    -   Completely free
--   NekoBot
-    -   Lots of different neko images
-    -   Image generation (memes, ships, etc.)
-    -   Get random images from 30 different categories
-    -   SFW and NSFW images
-    -   Completely free
--   Nekos.moe
-    -   Lots of different neko images
-    -   Advanced image search
-    -   Upload images
-    -   Like and favorite images
-    -   SFW and NSFW images
-    -   Get any amount of random images
-    -   Completely free
--   Nekos.best
-    -   Lots of different neko images
-    -   Get random images from +35 different categories
-    -   Get many random images with a single API call
-    -   Search for images by category, format and more
-    -   Fully SFW
-    -   99.9% uptime
-    -   Fast response times
-    -   Get all image's source
-    -   Completely free
+api = AnimechanV1API(timeout=10)
+quote = api.get_random_quote()  # One network request
+print(quote.quote, quote.character, quote.anime)
+# Optional: api.get_random_quote(anime_title="Naruto")
+```
 
-#### Facts
+The new client supports random quotes only, including anime or character filters.
+It uses the current nested response format and preserves the existing `Quote`
+dataclass. No key is needed for the free tier; check provider limits before use.
+Legacy `AnimechanAPI` targets a parked domain: migrate to `AnimechanV1API`.
 
--   Anime Facts Rest API:
-    -   Lots of different anime facts
-    -   Get random fact from an anime
-    -   Save fact ID and refetch the fact later
-    -   Get a list of all available animes
-    -   Completely free
--   Animu:
-    -   Lots of anime facts
-    -   Get random anime facts
-    -   Completely free
--   Kyoko:
-    -   Lots of different anime facts
-    -   Get random reaction gifs from 3 different categories
-    -   Completely free
--   Nekos.life
-    -   Lots of different anime facts
-    -   Get random anime facts
-    -   Completely free
+### Recheck links
 
-#### Quotes
+```powershell
+python scripts/check_links.py --output link-audit.json
+```
 
--   Animechan:
-    -   Lots of different quotes from a large list of characters and animes
-    -   Get random anime quotes
-    -   Get 10 random anime quotes with a single api call
-    -   Search quotes by character name or anime title
-    -   Get a list of all available animes
-    -   Completely free
--   Animu:
-    -   Lots of different anime quotes with information about who said them and where
-    -   Get random anime quotes
-    -   Completely free.
--   Kyoko:
-    -   Lots of different anime quotes
-    -   Get random quotes with information about who said them and where
-    -   Completely free
+The dependency-free checker scans tracked Markdown, Python, TOML and workflow
+files, follows redirects, bounds request time, and saves status codes and file
+locations. It flags 404/410 responses and detected parking pages. Authentication,
+bot blocks, DNS errors and timeouts stay **unverified**; inspect them before
+removing a provider. An API base path can return 404 while its resource routes work.
 
-#### Waifus
+### Development
 
--   Animu:
-    -   Lots of different waifus from Video Games, Animes, Movies and more.
-    -   Get random waifus with their statistics, source, many images and more.
-    -   Completely free
+```powershell
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -e . pytest
+.venv/Scripts/python.exe -m pytest tests/test_animechan_v1.py tests/test_link_checker.py
+```
 
-#### Animes
-
--   Anime Facts Rest API:
-    -   Get a list of lots of snake-case anime titles with their images and facts about them
-    -   Completely free
--   Animechan:
-    -   Get a list of lots of anime titles with random quotes from them
-    -   Completely free
--   Studio Ghibli API
-    -   Get Studio Ghibli animes with information such as director, producer, etc.
-    -   Dynamic loading support
-    -   Get super specific anime details such as veichles, locations, people, and species.
-    -   Completely free
-
-#### Entertainment
-
--   Nekos.life
-    -   Get an answer from an 8ball with an aditional image of an 8ball showing the answer.
-    -   Get a random "why?" question
-    -   Completely free
-
-#### Utilities
-
--   Trace.moe
-    -   Find an anime from a screenshot with information about the specific anime, episode and time of the screenshot.
-    -   Completely free
--   Nekos.life
-    -   Get a random cat text emoji
-    -   Generate random names
-    -   Owoify text (`hello` => `hewwo`)
-    -   Mark text as spoiler (`hello` => `||hello||`) (API endpoint is currently bugged)
-    -   Completely free
--   Animu:
-    -   Generate a secure password
-    -   Completely free
-
-### APIs that will not be supported
-
--   Illegal anime streaming services
--   Non anime-related APIs
--   APIs that are not APIs (i.e. web scrapping)
+Most existing tests call live third-party services. Run those explicitly when you
+have service access; the tests above run offline.
 
 ## Contributing
 
@@ -254,7 +147,7 @@ Once you have checked this, please create an issue with the following informatio
 -   The API docs link
 -   List of all the features the API has
 
-## Mantainers
+## Maintainers
 
 <table>
   <tr>
